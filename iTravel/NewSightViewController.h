@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "TripDay.h"
+#import "TripDayTableViewController.h"
 
 @interface NewSightViewController : UIViewController
 
 @property(strong, nonatomic) TripDay* tripDay;
+@property(weak, nonatomic) TripDayTableViewController* parentView;
+
 @end

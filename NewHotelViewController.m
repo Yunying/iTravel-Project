@@ -99,8 +99,33 @@
 }
 
 - (void) saveButtonTapped: (UIBarButtonItem*) button {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    NSDate* start = [dateFormatter dateFromString:_startDate.text];
+    NSDate* end = [dateFormatter dateFromString:_endDate.text];
     
+    NSArray* allDays = [_database getAllTripDayObjectsForTrip: _tripObj];
+    
+    for (int i=0; i<allDays.count; i++){
+        PFObject* thisObj = (PFObject*)allDays[i];
+        NSString* thisDate = thisObj[kDate];
+        NSDate* curr =[dateFormatter dateFromString:thisDate];
+        bool inRange = [_util checkDateInRange:curr forStartDate:start forEndDate:end];
+        if (inRange){
+            thisObj[kHotelName] = _nameTextField.text;
+            thisObj[kHotelAddress] = _addressTextField.text;
+            thisObj[kHotelEmail] = _emailTextField.text;
+            thisObj[kHotelPhone] = _phoneTextField.text;
+            [thisObj save];
+        }
+    }
+    
+    [_parentView viewDidLoad];
+    [_parentView.tableView reloadData];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 
 - (void) dateTextField: (UIDatePicker*) sender {
     UITextField* currField;

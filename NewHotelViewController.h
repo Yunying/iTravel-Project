@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "TripDay.h"
+#import "TripDayTableViewController.h"
 
 @interface NewHotelViewController : UIViewController
 
 @property(strong, nonatomic) TripDay* tripDay;
+@property(weak, nonatomic) TripDayTableViewController* parentView;
 
 @end

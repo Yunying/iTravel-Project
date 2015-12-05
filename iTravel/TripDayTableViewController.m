@@ -10,12 +10,15 @@
 #import "Constants.h"
 #import "NewHotelViewController.h"
 #import "NewSightViewController.h"
+#import "TravelDatabase.h"
 
 @interface TripDayTableViewController ()
 
 @property (nonatomic) bool haveHotel;
 
 @property (nonatomic) NSInteger sightNumber;
+
+@property (nonatomic) TravelDatabase* database;
 
 
 @end
@@ -30,11 +33,17 @@ static NSInteger const SightRowNumber = 3;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    _database = [TravelDatabase sharedModel];
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.title = _tripDay.tripDate;
     UIBarButtonItem *edit=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTripDay:)];
     self.navigationItem.rightBarButtonItem = edit;
+    
+    //Load Variables
+    [_database reloadTripDay:_tripDay];
+    _tripDayObj = _tripDay.parseObj;
+    _sights = [_database getSightsForTripDay:_tripDayObj];
     
     //Initialize
     if (_tripDayObj[kHotelName] == nil){
@@ -229,11 +238,14 @@ static NSInteger const SightRowNumber = 3;
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:kAddNewHotelSegue]){
         NewHotelViewController* controller = segue.destinationViewController;
+        
         controller.tripDay = _tripDay;
+        controller.parentView = self;
         
     } else if ([segue.identifier isEqualToString:kAddNewSightSegue]){
         NewSightViewController* controller = segue.destinationViewController;
         controller.tripDay = _tripDay;
+        controller.parentView = self;
     }
 }
 

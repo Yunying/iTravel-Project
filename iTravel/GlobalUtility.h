@@ -16,5 +16,7 @@
 - (void) styleTextField: (UITextField*) field;
 - (NSString*) formatDateStringWithSlash: (NSString*) inDate;
 - (NSString*) formatDateStringWithoutYear: (NSString*) inDate;
+- (BOOL) checkDateInRange: (NSDate*) inDate forStartDate: (NSDate*) startDate
+               forEndDate: (NSDate*) endDate;
 
 @end

@@ -29,7 +29,19 @@
     field.layer.masksToBounds = YES;
     field.leftView = leftView;
     field.leftViewMode = UITextFieldViewModeAlways;
+}
+
+- (BOOL) checkDateInRange: (NSString*) inDate forStartDate: (NSString*) startDate forEndDate: (NSString*) endDate {
+    if ([inDate compare:startDate] == NSOrderedAscending){
+        return false;
+    }
     
+    if ([inDate compare:endDate] == NSOrderedDescending || [inDate compare:endDate] == NSOrderedSame){
+        return false;
+    }
+    
+    
+    return true;
 }
 
 - (NSString*) formatDateStringWithSlash: (NSString*) inDate {

@@ -178,14 +178,15 @@ static NSString * const cellIdentifier = @"TripDetailCell";
         controller.tripName = _myTrip.name;
         NSIndexPath* path = [self.tableView indexPathForSelectedRow];
         TripDay* day = _myTrip.tripDays[path.row];
-        controller.sights = [_database getSightsForTripDay:day.parseObj];
+        [_database reloadTripDay:day];
+        
         controller.tripDay = day;
         if (path.row == 0 || path.row == [_myTrip numberOfTripDays]-1){
             controller.endpoint = true;
         } else {
             controller.endpoint = false;
         }
-        controller.tripDayObj = day.parseObj;
+        
         
     }
 }
