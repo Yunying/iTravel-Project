@@ -56,6 +56,7 @@
     NSMutableArray* days = [[NSMutableArray alloc]init];
     for (int i=0; i<[result count]; i++){
         TripDay* newTrip = [[TripDay alloc]constructFromPFObject:result[i]];
+        newTrip.parentTripObj = inTripObj;
         [days addObject:newTrip];
     }
     return days;

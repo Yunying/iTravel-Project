@@ -8,6 +8,8 @@
 
 #import "TripDayTableViewController.h"
 #import "Constants.h"
+#import "NewHotelViewController.h"
+#import "NewSightViewController.h"
 
 @interface TripDayTableViewController ()
 
@@ -69,7 +71,7 @@ static NSInteger const SightRowNumber = 3;
             break;
         case 2:
             if (_haveHotel){
-                return 3;
+                return 4;
             } else {
                 return 1;
             }
@@ -134,8 +136,8 @@ static NSInteger const SightRowNumber = 3;
                     cell.textLabel.text = @"Transportation";
                     cell.detailTextLabel.text = sight[kSightTransport];
                 } else if (indexPath.row % SightRowNumber == 2){
-                    cell.textLabel.text = @"Notes";
-                    cell.detailTextLabel.text = sight[kSightNote];
+                    cell.textLabel.text = @"Address";
+                    cell.detailTextLabel.text = sight[kSightAddress];
                 }
             }
             break;
@@ -147,12 +149,16 @@ static NSInteger const SightRowNumber = 3;
                 } else if (indexPath.row == 1){
                     cell.textLabel.text = @"Address";
                     cell.detailTextLabel.text = _tripDayObj[kHotelAddress];
+                } else if (indexPath.row == 2){
+                    cell.textLabel.text = @"Email";
+                    cell.detailTextLabel.text = _tripDayObj[kHotelEmail];
                 } else {
-                    cell.textLabel.text = @"Notes";
-                    cell.detailTextLabel.text = _tripDayObj[kHotelNote];
+                    cell.textLabel.text = @"Phone";
+                    cell.detailTextLabel.text = _tripDayObj[kHotelPhone];
                 }
             } else {
                 cell.textLabel.text = @"Add Lodging";
+                cell.detailTextLabel.text = @"";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
             break;
@@ -165,14 +171,28 @@ static NSInteger const SightRowNumber = 3;
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1 && indexPath.row == 0){
+        [self performSegueWithIdentifier:kAddNewSightSegue sender:self];
+    } else if (indexPath.section == 2 && !_haveHotel){
+        [self performSegueWithIdentifier:kAddNewHotelSegue sender:self];
 
-/*
+    }
+}
+
+
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    if (indexPath.section == 0){
+        return YES;
+    } else {
+        return NO;
+    }
 }
-*/
+
 
 /*
 // Override to support editing the table view.
@@ -200,14 +220,22 @@ static NSInteger const SightRowNumber = 3;
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:kAddNewHotelSegue]){
+        NewHotelViewController* controller = segue.destinationViewController;
+        controller.tripDay = _tripDay;
+        
+    } else if ([segue.identifier isEqualToString:kAddNewSightSegue]){
+        NewSightViewController* controller = segue.destinationViewController;
+        controller.tripDay = _tripDay;
+    }
 }
-*/
+
 
 @end

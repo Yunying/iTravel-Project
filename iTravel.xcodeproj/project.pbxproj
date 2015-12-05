@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		352FCB891C12666E0078C004 /* TripDayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352FCB881C12666E0078C004 /* TripDayTableViewController.m */; };
 		352FCB8C1C1267C30078C004 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352FCB8A1C1267C30078C004 /* Main.storyboard */; };
+		352FCB8F1C1393410078C004 /* NewSightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352FCB8E1C1393410078C004 /* NewSightViewController.m */; };
+		352FCB921C1393620078C004 /* NewHotelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352FCB911C1393620078C004 /* NewHotelViewController.m */; };
 		35BAAB771C116760006160E0 /* TripDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB761C116760006160E0 /* TripDetailTableViewController.m */; };
 		35BAAB7A1C116B12006160E0 /* TripDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB791C116B12006160E0 /* TripDay.m */; };
 		35D1D1EC1C0F4B70004753FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D1D1EB1C0F4B70004753FD /* main.m */; };
@@ -60,6 +62,10 @@
 		352FCB871C12666E0078C004 /* TripDayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDayTableViewController.h; sourceTree = "<group>"; };
 		352FCB881C12666E0078C004 /* TripDayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripDayTableViewController.m; sourceTree = "<group>"; };
 		352FCB8B1C1267C30078C004 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		352FCB8D1C1393410078C004 /* NewSightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewSightViewController.h; sourceTree = "<group>"; };
+		352FCB8E1C1393410078C004 /* NewSightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewSightViewController.m; sourceTree = "<group>"; };
+		352FCB901C1393620078C004 /* NewHotelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewHotelViewController.h; path = ../NewHotelViewController.h; sourceTree = "<group>"; };
+		352FCB911C1393620078C004 /* NewHotelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewHotelViewController.m; path = ../NewHotelViewController.m; sourceTree = "<group>"; };
 		35BAAB751C116760006160E0 /* TripDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDetailTableViewController.h; sourceTree = "<group>"; };
 		35BAAB761C116760006160E0 /* TripDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripDetailTableViewController.m; sourceTree = "<group>"; };
 		35BAAB781C116B12006160E0 /* TripDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDay.h; sourceTree = "<group>"; };
@@ -254,6 +260,10 @@
 				35D1D2A01C0FF370004753FD /* AddTripViewController.m */,
 				35D1D2961C0F781F004753FD /* MainTableViewController.h */,
 				35D1D2971C0F781F004753FD /* MainTableViewController.m */,
+				352FCB901C1393620078C004 /* NewHotelViewController.h */,
+				352FCB911C1393620078C004 /* NewHotelViewController.m */,
+				352FCB8D1C1393410078C004 /* NewSightViewController.h */,
+				352FCB8E1C1393410078C004 /* NewSightViewController.m */,
 				352FCB871C12666E0078C004 /* TripDayTableViewController.h */,
 				352FCB881C12666E0078C004 /* TripDayTableViewController.m */,
 				35BAAB751C116760006160E0 /* TripDetailTableViewController.h */,
@@ -396,7 +406,9 @@
 				35D1D29E1C0FA417004753FD /* TravelDatabase.m in Sources */,
 				35D1D1F21C0F4B70004753FD /* ViewController.m in Sources */,
 				35D1D1EF1C0F4B70004753FD /* AppDelegate.m in Sources */,
+				352FCB8F1C1393410078C004 /* NewSightViewController.m in Sources */,
 				35BAAB7A1C116B12006160E0 /* TripDay.m in Sources */,
+				352FCB921C1393620078C004 /* NewHotelViewController.m in Sources */,
 				35D1D29B1C0FA16B004753FD /* TravelTrip.m in Sources */,
 				35BAAB771C116760006160E0 /* TripDetailTableViewController.m in Sources */,
 				35D1D2981C0F781F004753FD /* MainTableViewController.m in Sources */,
