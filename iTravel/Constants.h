@@ -13,6 +13,7 @@
 static NSString* const kAddTripSegue = @"AddTrip";
 static NSString* const kSaveTripSegue = @"SaveTrip";
 static NSString* const kTripDetailSegue = @"TripDetail";
+static NSString* const kTripDayDetailSegue = @"TripDayDetail";
 
 //Class Names
 static NSString* const kTripClass = @"Trip";

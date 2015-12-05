@@ -13,6 +13,8 @@
 
 @property(strong, nonatomic) NSString* tripDate;
 @property(nonatomic) float currentCost;
+@property(strong, nonatomic) PFObject* parseObj;
+
 
 - (instancetype) constructFromPFObject: (PFObject*) input;
 

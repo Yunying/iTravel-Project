@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		352FCB891C12666E0078C004 /* TripDayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352FCB881C12666E0078C004 /* TripDayTableViewController.m */; };
+		352FCB8C1C1267C30078C004 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352FCB8A1C1267C30078C004 /* Main.storyboard */; };
 		35BAAB771C116760006160E0 /* TripDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB761C116760006160E0 /* TripDetailTableViewController.m */; };
 		35BAAB7A1C116B12006160E0 /* TripDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB791C116B12006160E0 /* TripDay.m */; };
 		35D1D1EC1C0F4B70004753FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D1D1EB1C0F4B70004753FD /* main.m */; };
 		35D1D1EF1C0F4B70004753FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D1D1EE1C0F4B70004753FD /* AppDelegate.m */; };
 		35D1D1F21C0F4B70004753FD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D1D1F11C0F4B70004753FD /* ViewController.m */; };
-		35D1D1F51C0F4B70004753FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D1D1F31C0F4B70004753FD /* Main.storyboard */; };
 		35D1D1F71C0F4B70004753FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35D1D1F61C0F4B70004753FD /* Assets.xcassets */; };
 		35D1D1FA1C0F4B70004753FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D1D1F81C0F4B70004753FD /* LaunchScreen.storyboard */; };
 		35D1D2051C0F4B70004753FD /* iTravelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D1D2041C0F4B70004753FD /* iTravelTests.m */; };
@@ -56,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		352FCB871C12666E0078C004 /* TripDayTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDayTableViewController.h; sourceTree = "<group>"; };
+		352FCB881C12666E0078C004 /* TripDayTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripDayTableViewController.m; sourceTree = "<group>"; };
+		352FCB8B1C1267C30078C004 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35BAAB751C116760006160E0 /* TripDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDetailTableViewController.h; sourceTree = "<group>"; };
 		35BAAB761C116760006160E0 /* TripDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripDetailTableViewController.m; sourceTree = "<group>"; };
 		35BAAB781C116B12006160E0 /* TripDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDay.h; sourceTree = "<group>"; };
@@ -66,7 +70,6 @@
 		35D1D1EE1C0F4B70004753FD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		35D1D1F01C0F4B70004753FD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		35D1D1F11C0F4B70004753FD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		35D1D1F41C0F4B70004753FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35D1D1F61C0F4B70004753FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35D1D1F91C0F4B70004753FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35D1D1FB1C0F4B70004753FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -172,7 +175,7 @@
 				35D1D1EE1C0F4B70004753FD /* AppDelegate.m */,
 				35D1D1F01C0F4B70004753FD /* ViewController.h */,
 				35D1D1F11C0F4B70004753FD /* ViewController.m */,
-				35D1D1F31C0F4B70004753FD /* Main.storyboard */,
+				352FCB8A1C1267C30078C004 /* Main.storyboard */,
 				35D1D1F61C0F4B70004753FD /* Assets.xcassets */,
 				35D1D1F81C0F4B70004753FD /* LaunchScreen.storyboard */,
 				35D1D1FB1C0F4B70004753FD /* Info.plist */,
@@ -251,6 +254,8 @@
 				35D1D2A01C0FF370004753FD /* AddTripViewController.m */,
 				35D1D2961C0F781F004753FD /* MainTableViewController.h */,
 				35D1D2971C0F781F004753FD /* MainTableViewController.m */,
+				352FCB871C12666E0078C004 /* TripDayTableViewController.h */,
+				352FCB881C12666E0078C004 /* TripDayTableViewController.m */,
 				35BAAB751C116760006160E0 /* TripDetailTableViewController.h */,
 				35BAAB761C116760006160E0 /* TripDetailTableViewController.m */,
 			);
@@ -361,9 +366,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				352FCB8C1C1267C30078C004 /* Main.storyboard in Resources */,
 				35D1D1FA1C0F4B70004753FD /* LaunchScreen.storyboard in Resources */,
 				35D1D1F71C0F4B70004753FD /* Assets.xcassets in Resources */,
-				35D1D1F51C0F4B70004753FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +401,7 @@
 				35BAAB771C116760006160E0 /* TripDetailTableViewController.m in Sources */,
 				35D1D2981C0F781F004753FD /* MainTableViewController.m in Sources */,
 				35D1D1EC1C0F4B70004753FD /* main.m in Sources */,
+				352FCB891C12666E0078C004 /* TripDayTableViewController.m in Sources */,
 				35D1D2A11C0FF370004753FD /* AddTripViewController.m in Sources */,
 				35D1D2A41C114465004753FD /* GlobalUtility.m in Sources */,
 			);
@@ -433,10 +439,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		35D1D1F31C0F4B70004753FD /* Main.storyboard */ = {
+		352FCB8A1C1267C30078C004 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				35D1D1F41C0F4B70004753FD /* Base */,
+				352FCB8B1C1267C30078C004 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

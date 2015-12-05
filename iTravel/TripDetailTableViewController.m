@@ -10,6 +10,8 @@
 #import "TravelTrip.h"
 #import "TripDay.h"
 #import "GlobalUtility.h"
+#import "Constants.h"
+#import "TripDayTableViewController.h"
 
 @interface TripDetailTableViewController()
 
@@ -118,6 +120,14 @@ static NSString * const cellIdentifier = @"TripDetailCell";
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1){
+        [self performSegueWithIdentifier:kTripDayDetailSegue sender:self];
+
+    }
+}
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -153,14 +163,28 @@ static NSString * const cellIdentifier = @"TripDetailCell";
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:kTripDayDetailSegue]){
+        TripDayTableViewController* controller = segue.destinationViewController;
+        controller.tripName = _myTrip.name;
+        NSIndexPath* path = [self.tableView indexPathForSelectedRow];
+        TripDay* day = _myTrip.tripDays[path.row];
+        controller.tripDay = day;
+        if (path.row == 0 || path.row == [_myTrip numberOfTripDays]-1){
+            controller.endpoint = true;
+        } else {
+            controller.endpoint = false;
+        }
+        controller.tripDayObj = day.parseObj;
+        
+    }
 }
-*/
+
 
 @end

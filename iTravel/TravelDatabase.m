@@ -92,4 +92,14 @@
     
 }
 
+- (TripDay*) getTripDayDetail: (TravelTrip*) parentTrip withDate: (NSString*) inDate {
+    PFQuery *query = [PFQuery queryWithClassName:kTripDayClass];
+    [query whereKey:@"parent" equalTo:parentTrip];
+    [query whereKey:kDate equalTo:inDate];
+    PFObject* obj = [query getFirstObject];
+    TripDay* result = [[TripDay alloc]constructFromPFObject:obj];
+    result.parseObj = obj;
+    return result;
+}
+
 @end
