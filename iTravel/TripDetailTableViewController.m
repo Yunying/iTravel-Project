@@ -12,11 +12,13 @@
 #import "GlobalUtility.h"
 #import "Constants.h"
 #import "TripDayTableViewController.h"
+#import "TravelDatabase.h"
 
 @interface TripDetailTableViewController()
 
 @property(strong, nonatomic, setter=setTrip:) TravelTrip* myTrip;
 @property(strong, nonatomic) GlobalUtility* util;
+@property(strong, nonatomic) TravelDatabase* database;
 
 @end
 
@@ -33,6 +35,7 @@ static NSString * const cellIdentifier = @"TripDetailCell";
     
     //Global classes
     _util = [GlobalUtility sharedModel];
+    _database = [TravelDatabase sharedModel];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -175,6 +178,7 @@ static NSString * const cellIdentifier = @"TripDetailCell";
         controller.tripName = _myTrip.name;
         NSIndexPath* path = [self.tableView indexPathForSelectedRow];
         TripDay* day = _myTrip.tripDays[path.row];
+        controller.sights = [_database getSightsForTripDay:day.parseObj];
         controller.tripDay = day;
         if (path.row == 0 || path.row == [_myTrip numberOfTripDays]-1){
             controller.endpoint = true;

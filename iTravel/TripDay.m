@@ -19,6 +19,7 @@
     } else {
         self.currentCost = 0.0f;
     }
+    trip.parseObj = input;
     return trip;
 }
 

@@ -13,11 +13,15 @@
 
 @property (nonatomic) bool haveHotel;
 
+@property (nonatomic) NSInteger sightNumber;
+
+
 @end
 
 @implementation TripDayTableViewController
 
 static NSString * const cellIdentifier = @"TripDayCell";
+static NSInteger const SightRowNumber = 3;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,6 +31,8 @@ static NSString * const cellIdentifier = @"TripDayCell";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.title = _tripDay.tripDate;
+    UIBarButtonItem *edit=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTripDay:)];
+    self.navigationItem.rightBarButtonItem = edit;
     
     //Initialize
     if (_tripDayObj[kHotelName] == nil){
@@ -34,6 +40,12 @@ static NSString * const cellIdentifier = @"TripDayCell";
     } else {
         _haveHotel = true;
     }
+    
+    _sightNumber = _sights.count;
+}
+
+- (void) editTripDay: (UIBarButtonItem*) button {
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,10 +62,10 @@ static NSString * const cellIdentifier = @"TripDayCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section){
         case 0:
-            return 0;
+            return 3;
             break;
         case 1:
-            return 0;
+            return _sightNumber*SightRowNumber+1;
             break;
         case 2:
             if (_haveHotel){
@@ -76,7 +88,7 @@ static NSString * const cellIdentifier = @"TripDayCell";
             return @"Summary";
             break;
         case 1:
-            return @"Sights";
+            return @"Event";
             break;
         case 2:
             return @"Lodging";
@@ -97,26 +109,47 @@ static NSString * const cellIdentifier = @"TripDayCell";
     switch (indexPath.section){
         case 0:
             if (indexPath.row == 0){
-                
+                cell.textLabel.text = @"Date";
+                cell.detailTextLabel.text = _tripDayObj[kDate];
             } else if (indexPath.row == 1){
-                
+                cell.textLabel.text = @"Itinerary";
+                cell.detailTextLabel.text = _tripDayObj[kTripDaySummary];
+            } else if (indexPath.row == 2){
+                cell.textLabel.text = @"Cost";
+                cell.detailTextLabel.text = _tripDayObj[kTripDayCost];
             }
             break;
         case 1:
-            if (indexPath.row == 0){
-                
+            if (indexPath.row == _sightNumber*SightRowNumber){
+                cell.textLabel.text = @"Add Sight";
+                cell.detailTextLabel.text = @"";
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             } else {
-                
+                int sightIndex = indexPath.row / SightRowNumber;
+                PFObject* sight = (PFObject*)_sights[sightIndex];
+                if (indexPath.row % SightRowNumber == 0){
+                    cell.textLabel.text = @"Destination";
+                    cell.detailTextLabel.text = sight[kSightName];
+                } else if (indexPath.row % SightRowNumber == 1){
+                    cell.textLabel.text = @"Transportation";
+                    cell.detailTextLabel.text = sight[kSightTransport];
+                } else if (indexPath.row % SightRowNumber == 2){
+                    cell.textLabel.text = @"Notes";
+                    cell.detailTextLabel.text = sight[kSightNote];
+                }
             }
             break;
         case 2:
             if (_haveHotel){
                 if (indexPath.row == 0){
-                    
+                    cell.textLabel.text = @"Name";
+                    cell.detailTextLabel.text = _tripDayObj[kHotelName];
                 } else if (indexPath.row == 1){
-                    
+                    cell.textLabel.text = @"Address";
+                    cell.detailTextLabel.text = _tripDayObj[kHotelAddress];
                 } else {
-                    
+                    cell.textLabel.text = @"Notes";
+                    cell.detailTextLabel.text = _tripDayObj[kHotelNote];
                 }
             } else {
                 cell.textLabel.text = @"Add Lodging";

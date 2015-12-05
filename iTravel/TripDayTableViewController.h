@@ -16,5 +16,8 @@
 @property(strong, nonatomic) TripDay* tripDay;
 @property(strong, nonatomic) PFObject* tripDayObj;
 @property(nonatomic) bool endpoint;
+@property(nonatomic) NSArray* sights;
+
+- (void) editTripDay: (UIBarButtonItem*) button;
 
 @end

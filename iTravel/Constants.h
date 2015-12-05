@@ -18,6 +18,7 @@ static NSString* const kTripDayDetailSegue = @"TripDayDetail";
 //Class Names
 static NSString* const kTripClass = @"Trip";
 static NSString* const kTripDayClass = @"TripDay";
+static NSString* const kSightClass = @"Sight";
 
 //Travel
 static NSString* const kTripName = @"Name";
@@ -33,16 +34,18 @@ static NSString* const kFlightName = @"Flight";
 //Hotel
 static NSString* const kHotelName = @"HotelName";
 static NSString* const kHotelAddress = @"HotelAddress";
-static NSString* const kHotelTransportation = @"HotelTransportation";
+static NSString* const kHotelNote = @"HotelNote";
 
 //Trip Day
 static NSString* const kDate = @"Date";
 static NSString* const kRelatedTrip = @"parent";
 static NSString* const kTripDayCost = @"Cost";
+static NSString* const kTripDaySummary = @"Summary";
 
-//Itinerary
-static NSString* const kDestName = @"DestName";
-static NSString* const kTransportation = @"Transportation";
+//Sight
+static NSString* const kSightName = @"SightName";
+static NSString* const kSightTransport = @"Transportation";
+static NSString* const kSightNote = @"SightNote";
 
 //Utility
 static NSInteger const kGenerateDaysThreshold = 10;

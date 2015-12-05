@@ -17,6 +17,7 @@
 - (PFObject*) getTripForName: (NSString*) inName;
 - (NSMutableArray*) getAllTripDaysForTrip: (NSString*) inTrip;
 - (TripDay*) getTripDayDetail: (TravelTrip*) parentTrip withDate: (NSString*) inDate;
+- (NSArray*) getSightsForTripDay: (PFObject*) inDay;
 - (void) saveNewTrip: (TravelTrip*) inTrip;
 - (void) saveNewTripDays: (NSMutableArray*) inDays forTrip: (PFObject*) inTrip;
 

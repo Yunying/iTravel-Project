@@ -98,8 +98,15 @@
     [query whereKey:kDate equalTo:inDate];
     PFObject* obj = [query getFirstObject];
     TripDay* result = [[TripDay alloc]constructFromPFObject:obj];
-    result.parseObj = obj;
     return result;
+}
+
+- (NSArray*) getSightsForTripDay: (PFObject*) inDay {
+    PFQuery *query = [PFQuery queryWithClassName:kSightClass];
+    [query whereKey:@"parent" equalTo:inDay];
+    NSArray* result = [query findObjects];
+    return result;
+
 }
 
 @end

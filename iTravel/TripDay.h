@@ -14,6 +14,7 @@
 @property(strong, nonatomic) NSString* tripDate;
 @property(nonatomic) float currentCost;
 @property(strong, nonatomic) PFObject* parseObj;
+@property(strong, nonatomic) NSArray* sights;
 
 
 - (instancetype) constructFromPFObject: (PFObject*) input;
