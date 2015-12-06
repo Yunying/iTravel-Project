@@ -29,6 +29,8 @@
 
 @property (nonatomic, strong) NSString* itemContent;
 
+@property (nonatomic, strong) NSString* itemConst;
+
 @end
 
 @implementation TripDayTableViewController
@@ -73,7 +75,7 @@ static NSInteger const SightRowNumber = 3;
 }
 
 - (void) editTripDay: (UIBarButtonItem*) button {
-    
+    [self.tableView setEditing:YES animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -226,10 +228,33 @@ static NSInteger const SightRowNumber = 3;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1 && _sightNumber*SightRowNumber){
+    NSLog(@"section number: %ldl", (long)_sightNumber*SightRowNumber);
+    if (indexPath.section == 1 && indexPath.row == _sightNumber*SightRowNumber){
         [self performSegueWithIdentifier:kAddNewSightSegue sender:self];
     } else if (indexPath.section == 2 && !_haveHotel){
         [self performSegueWithIdentifier:kAddNewHotelSegue sender:self];
+    } else if (indexPath.section == 2 && _haveHotel){
+        //Todo
+        switch (indexPath.row){
+            case 0:
+                _itemTitle = @"Edit Hotel Name";
+                _itemConst = kHotelName;
+                break;
+            case 1:
+                _itemTitle = @"Edit Hotel Address";
+                _itemConst = kHotelAddress;
+                break;
+            case 2:
+                _itemTitle = @"Edit Hotel Email";
+                _itemConst = kHotelEmail;
+                break;
+            case 3:
+                _itemTitle = @"Edit Hotel Phone";
+                _itemConst = kHotelPhone;
+                break;
+        }
+        [self performSegueWithIdentifier:kEditSingleItemSegue sender:self];
+        
     } else if (indexPath.section == 3){
         if ((_haveImage && indexPath.row == 1) || (!_haveImage && indexPath.row == 0)){
             UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -257,7 +282,7 @@ static NSInteger const SightRowNumber = 3;
         }
     } else if (indexPath.section == 0 && indexPath.row == 1){
         _itemTitle = @"Edit Itinerary";
-        _itemContent = _tripDayObj[kTripDaySummary];
+        _itemConst = kTripDaySummary;
         [self performSegueWithIdentifier:kEditSingleItemSegue sender:self];
 
     }
@@ -286,7 +311,9 @@ static NSInteger const SightRowNumber = 3;
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    if (indexPath.section == 0){
+    if (indexPath.section == 1
+        && indexPath.row%SightRowNumber == 0
+        && indexPath.row != SightRowNumber*_sightNumber){
         return YES;
     } else {
         return NO;
@@ -294,17 +321,36 @@ static NSInteger const SightRowNumber = 3;
 }
 
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        int sightIndex = indexPath.row / SightRowNumber;
+        PFObject* sight = (PFObject*)_sights[sightIndex];
+        PFObject* dayObj = sight[kSightParent];
+        [dayObj fetch];
+        [_database updateTripDaySightCost:dayObj withValue:[sight[kSightCost] floatValue]];
+        [_database reloadTripDay:_tripDay];
+    
+        //Delete
+        [sight delete];
+        _sights = [_database getSightsForTripDay:_tripDayObj];
+        _sightNumber--;
+        
+        NSIndexPath* path = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
+        NSIndexPath* path2 = [NSIndexPath indexPathForRow:indexPath.row+2 inSection:indexPath.section];
+        NSMutableArray* arr = [[NSMutableArray alloc]initWithObjects:indexPath,path,path2,nil];
+        [tableView deleteRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self viewDidLoad];
+        [self.tableView reloadData];
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -319,6 +365,17 @@ static NSInteger const SightRowNumber = 3;
     return YES;
 }
 */
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return self.photos.count;
+}
+
+- (MWPhoto *)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < self.photos.count) {
+        return [self.photos objectAtIndex:index];
+    }
+    return nil;
+}
 
 
 #pragma mark - Navigation
@@ -340,10 +397,10 @@ static NSInteger const SightRowNumber = 3;
     } else if ([segue.identifier isEqualToString:kEditSingleItemSegue]){
         EditSingleItemViewController* controller = segue.destinationViewController;
         controller.editTitle = _itemTitle;
-        controller.editContent = _itemContent;
+        controller.editContent = _tripDayObj[_itemConst];
         controller.completionHandler = ^(NSString* text){
             if (text != nil){
-                _tripDayObj[kTripDaySummary] = text;
+                _tripDayObj[_itemConst] = text;
                 [_tripDayObj save];
                 [self.tableView reloadData];
             }
@@ -352,16 +409,7 @@ static NSInteger const SightRowNumber = 3;
     }
 }
 
-- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
-    return self.photos.count;
-}
 
-- (MWPhoto *)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
-    if (index < self.photos.count) {
-        return [self.photos objectAtIndex:index];
-    }
-    return nil;
-}
 
 
 @end

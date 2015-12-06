@@ -15,13 +15,17 @@
 + (instancetype) sharedModel;
 
 - (void) reloadTripDay: (TripDay*) inTrip;
+
 - (NSArray*) getAllTripsFromDatabase;
 - (PFObject*) getTripForName: (NSString*) inName;
 - (NSMutableArray*) getAllTripDaysForTrip: (NSString*) inTrip;
 - (NSArray*) getAllTripDayObjectsForTrip: (PFObject*) inTrip;
 - (TripDay*) getTripDayDetail: (TravelTrip*) parentTrip withDate: (NSString*) inDate;
+
 - (NSArray*) getSightsForTripDay: (PFObject*) inDay;
 - (NSMutableArray*) getImagesForTripDay: (PFObject*) inTrip;
+
+- (void) updateTripDaySightCost: (PFObject*) inTrip withValue: (float) inCost;
 
 
 - (void) saveNewTrip: (TravelTrip*) inTrip;

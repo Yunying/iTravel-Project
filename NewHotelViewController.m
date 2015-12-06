@@ -128,7 +128,7 @@
     
     for (int i=0; i<changedDays.count; i++){
         PFObject* thisObj = (PFObject*)changedDays[i];
-
+        thisObj[kTripDayHotelCost] = [NSString stringWithFormat:@"%1.2f", dailyCost];
         if (thisObj[kTripDayCost] == nil){
             thisObj[kTripDayCost] = [NSString stringWithFormat:@"%1.2f", dailyCost];
         } else {

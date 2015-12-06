@@ -76,14 +76,17 @@
     obj[kSightAddress] = _addressTextField.text;
     obj[kSightTransport] = _transportTextField.text;
     obj[kSightParent] = _tripDay.parseObj;
+    obj[kSightCost] = _priceTextField.text;
     [obj save];
     
     PFObject* dayObj = _tripDay.parseObj;
     if (dayObj[kTripDayCost] == nil){
         dayObj[kTripDayCost] = _priceTextField.text;
+        dayObj[kTripDaySightCost] = _priceTextField.text;
     } else {
         float newCost = [dayObj[kTripDayCost] floatValue] + [_priceTextField.text floatValue];
         dayObj[kTripDayCost] = [NSString stringWithFormat:@"%1.2f", newCost];
+        dayObj[kTripDaySightCost] = [NSString stringWithFormat:@"%1.2f", newCost];
     }
     [dayObj save];
     

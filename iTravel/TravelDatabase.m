@@ -156,4 +156,12 @@
     return returnImages;
 }
 
+- (void) updateTripDaySightCost: (PFObject*) inTrip withValue: (float) inCost {
+    float dayCost = [inTrip[kTripDayCost] floatValue] - inCost;
+    float sightCost = [inTrip[kTripDaySightCost] floatValue] - inCost;
+    inTrip[kTripDayCost] = [NSString stringWithFormat:@"%1.2f", dayCost];
+    inTrip[kTripDaySightCost] = [NSString stringWithFormat:@"%1.2f", sightCost];
+    [inTrip save];
+}
+
 @end
