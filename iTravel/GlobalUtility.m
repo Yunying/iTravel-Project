@@ -31,6 +31,13 @@
     field.leftViewMode = UITextFieldViewModeAlways;
 }
 
+- (void) styleTextView: (UITextView*) field {
+
+    field.layer.borderWidth = 2.0f;
+    field.layer.borderColor = [[UIColor blackColor] CGColor];
+    
+}
+
 - (BOOL) checkDateInRange: (NSString*) inDate forStartDate: (NSString*) startDate forEndDate: (NSString*) endDate {
     if ([inDate compare:startDate] == NSOrderedAscending){
         return false;

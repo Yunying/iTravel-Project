@@ -111,7 +111,7 @@
                     <connections>
                         <segue destination="4ae-ad-q4r" kind="presentation" identifier="AddNewHotel" id="BQX-2h-jvn"/>
                         <segue destination="0jm-Hp-xNm" kind="presentation" identifier="AddNewSight" id="Yuu-nh-ppy"/>
-                        <segue destination="Stx-DU-iGY" kind="presentation" identifier="ShowImages" id="Kh2-Ee-E1c"/>
+                        <segue destination="8hS-5d-zkZ" kind="presentation" identifier="EditSingleItem" id="aij-Pj-alf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PTu-Ed-s06" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -402,23 +402,80 @@
             </objects>
             <point key="canvasLocation" x="2842.5" y="-382.5"/>
         </scene>
-        <!--View Image View Controller-->
-        <scene sceneID="UcX-5c-YCY">
+        <!--Edit Single Item View Controller-->
+        <scene sceneID="djn-wv-Gqi">
             <objects>
-                <viewController id="Stx-DU-iGY" customClass="ViewImageViewController" sceneMemberID="viewController">
+                <viewController id="8hS-5d-zkZ" customClass="EditSingleItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pc4-IS-HT3"/>
-                        <viewControllerLayoutGuide type="bottom" id="p2u-zb-Z1Q"/>
+                        <viewControllerLayoutGuide type="top" id="djS-Ck-YbR"/>
+                        <viewControllerLayoutGuide type="bottom" id="HYC-hy-l8c"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZUG-Se-l6s">
+                    <view key="view" contentMode="scaleToFill" id="JDE-yP-Cc2">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ot-sV-t0j">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem id="hiB-1Y-3Dz"/>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gzo-hx-2en">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gzo-hx-2en" firstAttribute="leading" secondItem="JDE-yP-Cc2" secondAttribute="leadingMargin" constant="8" id="9Vf-64-GWv"/>
+                            <constraint firstItem="gzo-hx-2en" firstAttribute="top" secondItem="6ot-sV-t0j" secondAttribute="bottom" constant="50" id="Fzk-NL-mFg"/>
+                            <constraint firstItem="HYC-hy-l8c" firstAttribute="top" secondItem="gzo-hx-2en" secondAttribute="bottom" constant="450" id="T8t-QN-Js0">
+                                <variation key="heightClass=regular-widthClass=compact" constant="400"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="6ot-sV-t0j" secondAttribute="trailing" id="UJJ-Dy-syV"/>
+                            <constraint firstItem="6ot-sV-t0j" firstAttribute="leading" secondItem="JDE-yP-Cc2" secondAttribute="leading" id="ap6-kI-yqz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gzo-hx-2en" secondAttribute="trailing" constant="6" id="aqc-cp-eUj"/>
+                            <constraint firstItem="6ot-sV-t0j" firstAttribute="top" secondItem="djS-Ck-YbR" secondAttribute="bottom" id="uOc-PK-EQU"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="6ot-sV-t0j"/>
+                                <exclude reference="gzo-hx-2en"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="UJJ-Dy-syV"/>
+                                <exclude reference="ap6-kI-yqz"/>
+                                <exclude reference="uOc-PK-EQU"/>
+                                <exclude reference="9Vf-64-GWv"/>
+                                <exclude reference="Fzk-NL-mFg"/>
+                                <exclude reference="aqc-cp-eUj"/>
+                                <exclude reference="T8t-QN-Js0"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="6ot-sV-t0j"/>
+                                <include reference="gzo-hx-2en"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="UJJ-Dy-syV"/>
+                                <include reference="ap6-kI-yqz"/>
+                                <include reference="uOc-PK-EQU"/>
+                                <include reference="9Vf-64-GWv"/>
+                                <include reference="Fzk-NL-mFg"/>
+                                <include reference="aqc-cp-eUj"/>
+                                <include reference="T8t-QN-Js0"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="kKR-XX-nsi"/>
+                    <connections>
+                        <outlet property="navigationBar" destination="6ot-sV-t0j" id="JPu-ND-Qh9"/>
+                        <outlet property="textView" destination="gzo-hx-2en" id="Ovz-Tp-0Sw"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Eu-RQ-WN0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rGk-up-irH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2842.5" y="309.75"/>
+            <point key="canvasLocation" x="2857.5" y="339.75"/>
         </scene>
         <!--Main Table View Controller-->
         <scene sceneID="1ee-5Y-P62">

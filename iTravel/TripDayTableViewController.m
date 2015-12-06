@@ -11,7 +11,7 @@
 #import "NewHotelViewController.h"
 #import "NewSightViewController.h"
 #import "TravelDatabase.h"
-#import "ViewImageViewController.h"
+#import "EditSingleItemViewController.h"
 
 @interface TripDayTableViewController ()
 
@@ -24,6 +24,11 @@
 @property (nonatomic) bool haveImage;
 
 @property (nonatomic, strong) NSMutableArray *photos;
+
+@property (nonatomic, strong) NSString* itemTitle;
+
+@property (nonatomic, strong) NSString* itemContent;
+
 @end
 
 @implementation TripDayTableViewController
@@ -250,6 +255,11 @@ static NSInteger const SightRowNumber = 3;
              
             [self.navigationController presentViewController:nc animated:YES completion:nil];
         }
+    } else if (indexPath.section == 0 && indexPath.row == 1){
+        _itemTitle = @"Edit Itinerary";
+        _itemContent = _tripDayObj[kTripDaySummary];
+        [self performSegueWithIdentifier:kEditSingleItemSegue sender:self];
+
     }
 }
 
@@ -327,12 +337,18 @@ static NSInteger const SightRowNumber = 3;
         NewSightViewController* controller = segue.destinationViewController;
         controller.tripDay = _tripDay;
         controller.parentView = self;
-    } else if ([segue.identifier isEqualToString:kShowImageSegue]){
-        NSMutableArray* images = [_database getImagesForTripDay:_tripDayObj];
-        
-        ViewImageViewController* controller = segue.destinationViewController;
-        controller.rawPhotos = images;
-        
+    } else if ([segue.identifier isEqualToString:kEditSingleItemSegue]){
+        EditSingleItemViewController* controller = segue.destinationViewController;
+        controller.editTitle = _itemTitle;
+        controller.editContent = _itemContent;
+        controller.completionHandler = ^(NSString* text){
+            if (text != nil){
+                _tripDayObj[kTripDaySummary] = text;
+                [_tripDayObj save];
+                [self.tableView reloadData];
+            }
+            [self dismissViewControllerAnimated:YES completion:nil];
+        };
     }
 }
 

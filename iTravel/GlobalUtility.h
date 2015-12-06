@@ -14,6 +14,7 @@
 + (instancetype) sharedModel;
 
 - (void) styleTextField: (UITextField*) field;
+- (void) styleTextView: (UITextView*) field;
 - (NSString*) formatDateStringWithSlash: (NSString*) inDate;
 - (NSString*) formatDateStringWithoutYear: (NSString*) inDate;
 - (BOOL) checkDateInRange: (NSDate*) inDate forStartDate: (NSDate*) startDate
