@@ -833,7 +833,11 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="addressTextField" destination="E45-6a-6ji" id="8VN-iI-84T"/>
+                        <outlet property="nameTextField" destination="qHg-CG-UFR" id="fh3-H4-t4p"/>
                         <outlet property="navigationBar" destination="XWm-0S-X7F" id="hOB-nf-cHx"/>
+                        <outlet property="priceTextField" destination="dB1-N7-eqv" id="utw-Kv-c9B"/>
+                        <outlet property="transportTextField" destination="bIR-ZY-AMp" id="Vzd-JV-FVp"/>
                     </connections>
                 </viewController>
             </objects>

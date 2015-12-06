@@ -49,6 +49,7 @@ static NSString* const kTripDaySummary = @"Summary";
 static NSString* const kSightName = @"SightName";
 static NSString* const kSightTransport = @"Transportation";
 static NSString* const kSightAddress = @"SightAddress";
+static NSString* const kSightParent = @"parent";
 
 //Utility
 static NSInteger const kGenerateDaysThreshold = 20;

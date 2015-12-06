@@ -137,6 +137,10 @@ static NSInteger const SightRowNumber = 3;
             if (indexPath.row == _sightNumber*SightRowNumber){
                 cell.textLabel.text = @"Add Sight";
                 cell.detailTextLabel.text = @"";
+                cell.backgroundColor = [UIColor colorWithRed:235.0/255.0
+                                                       green:235.0/255.0
+                                                        blue:235.0/255.0
+                                                       alpha:1.0];
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             } else {
                 int sightIndex = indexPath.row / SightRowNumber;
@@ -144,6 +148,10 @@ static NSInteger const SightRowNumber = 3;
                 if (indexPath.row % SightRowNumber == 0){
                     cell.textLabel.text = @"Destination";
                     cell.detailTextLabel.text = sight[kSightName];
+                    cell.backgroundColor = [UIColor colorWithRed:245.0/255.0
+                                                           green:245.0/255.0
+                                                            blue:245.0/255.0
+                                                           alpha:1.0];
                 } else if (indexPath.row % SightRowNumber == 1){
                     cell.textLabel.text = @"Transportation";
                     cell.detailTextLabel.text = sight[kSightTransport];
@@ -172,6 +180,7 @@ static NSInteger const SightRowNumber = 3;
                 cell.textLabel.text = @"Add Lodging";
                 cell.detailTextLabel.text = @"";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                
             }
             break;
         case 3:
@@ -185,7 +194,7 @@ static NSInteger const SightRowNumber = 3;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1 && indexPath.row == 0){
+    if (indexPath.section == 1 && _sightNumber*SightRowNumber){
         [self performSegueWithIdentifier:kAddNewSightSegue sender:self];
     } else if (indexPath.section == 2 && !_haveHotel){
         [self performSegueWithIdentifier:kAddNewHotelSegue sender:self];
