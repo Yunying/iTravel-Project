@@ -23,5 +23,6 @@
 - (NSArray*) getSightsForTripDay: (PFObject*) inDay;
 - (void) saveNewTrip: (TravelTrip*) inTrip;
 - (void) saveNewTripDays: (NSMutableArray*) inDays forTrip: (PFObject*) inTrip;
+- (void) saveImage: (UIImage*) image forTripDay: (PFObject*) inTrip;
 
 @end

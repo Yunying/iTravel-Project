@@ -22,6 +22,7 @@ static NSString* const kImagePickerSegue = @"ImagePicker";
 static NSString* const kTripClass = @"Trip";
 static NSString* const kTripDayClass = @"TripDay";
 static NSString* const kSightClass = @"Sight";
+static NSString* const kImageClass = @"TripImage";
 
 //Travel
 static NSString* const kTripName = @"Name";
@@ -45,12 +46,17 @@ static NSString* const kDate = @"Date";
 static NSString* const kRelatedTrip = @"parent";
 static NSString* const kTripDayCost = @"Cost";
 static NSString* const kTripDaySummary = @"Summary";
+static NSString* const kTripDayImageCount = @"ImageCount";
 
 //Sight
 static NSString* const kSightName = @"SightName";
 static NSString* const kSightTransport = @"Transportation";
 static NSString* const kSightAddress = @"SightAddress";
 static NSString* const kSightParent = @"parent";
+
+//Image
+static NSString* const kImageFile = @"ImageFile";
+static NSString* const kImageParent = @"parent";
 
 //Utility
 static NSInteger const kGenerateDaysThreshold = 20;

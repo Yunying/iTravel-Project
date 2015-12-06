@@ -123,4 +123,23 @@
     inTrip.parseObj = obj;
 }
 
+- (void) saveImage: (UIImage*) image forTripDay: (PFObject*) inTrip {
+    
+    NSData* data = UIImageJPEGRepresentation(image, 0.5f);
+    PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:data];
+    
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            // The image has now been uploaded to Parse. Associate it with a new object
+            PFObject* obj = [PFObject objectWithClassName:kImageClass];
+            [obj setObject:imageFile forKey:kImageFile];
+            obj[kImageParent] = inTrip;
+            
+            [obj save];
+        }
+    }];
+    
+    
+}
+
 @end

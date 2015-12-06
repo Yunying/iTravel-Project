@@ -11,7 +11,6 @@
 #import "NewHotelViewController.h"
 #import "NewSightViewController.h"
 #import "TravelDatabase.h"
-#import "ImagePickerViewController.h"
 
 @interface TripDayTableViewController ()
 
@@ -21,7 +20,7 @@
 
 @property (nonatomic) TravelDatabase* database;
 
-
+@property (nonatomic) bool haveImage;
 @end
 
 @implementation TripDayTableViewController
@@ -51,6 +50,12 @@ static NSInteger const SightRowNumber = 3;
         _haveHotel = false;
     } else {
         _haveHotel = true;
+    }
+    
+    if (_tripDayObj[kTripDayImageCount] == nil){
+        _haveImage = false;
+    } else {
+        _haveImage = true;
     }
     
     _sightNumber = _sights.count;
@@ -90,7 +95,11 @@ static NSInteger const SightRowNumber = 3;
             }
             break;
         case 3:
-            return 1;
+            if (_haveImage) {
+                return 2;
+            } else {
+                return 1;
+            }
             break;
     }
     return 0;
@@ -185,9 +194,22 @@ static NSInteger const SightRowNumber = 3;
             }
             break;
         case 3:
-            cell.textLabel.text = @"Add Image";
-            cell.detailTextLabel.text = @"";
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            if (_haveImage){
+                if (indexPath.row == 0){
+                    cell.textLabel.text = @"View Image";
+                    cell.detailTextLabel.text = @"";
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+                } else {
+                    cell.textLabel.text = @"Add Image";
+                    cell.detailTextLabel.text = @"";
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                }
+            } else {
+                cell.textLabel.text = @"Add Image";
+                cell.detailTextLabel.text = @"";
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            }
             break;
     }
     
@@ -201,14 +223,34 @@ static NSInteger const SightRowNumber = 3;
     } else if (indexPath.section == 2 && !_haveHotel){
         [self performSegueWithIdentifier:kAddNewHotelSegue sender:self];
     } else if (indexPath.section == 3){
-        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
-        picker.allowsEditing = YES;
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        
-        [self presentViewController:picker animated:YES completion:NULL];
-
+        if ((_haveImage && indexPath.row == 1) || (!_haveImage && indexPath.row == 0)){
+            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+            picker.delegate = self;
+            picker.allowsEditing = YES;
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentViewController:picker animated:YES completion:NULL];
+        } else {
+            
+        }
     }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    [_database saveImage:chosenImage forTripDay:_tripDayObj];
+    
+    if (_tripDayObj[kTripDayImageCount] == nil){
+        _tripDayObj[kTripDayImageCount] = @"1";
+    } else {
+        int value = [_tripDayObj[kTripDayImageCount] integerValue]+1;
+        _tripDayObj[kTripDayImageCount] = [NSString stringWithFormat:@"%d", value];
+    }
+    [_tripDayObj save];
+    [self viewDidLoad];
+    [self.tableView reloadData];
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
 }
 
 
