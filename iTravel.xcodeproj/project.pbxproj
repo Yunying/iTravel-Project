@@ -15,6 +15,7 @@
 		352FCB981C13F9360078C004 /* SightIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 352FCB971C13F9360078C004 /* SightIcon.png */; };
 		352FCB9A1C13F93F0078C004 /* FoodIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 352FCB991C13F93F0078C004 /* FoodIcon.png */; };
 		352FCB9C1C13F96A0078C004 /* HouseIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 352FCB9B1C13F96A0078C004 /* HouseIcon.png */; };
+		352FCBA31C14113E0078C004 /* ViewImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352FCBA21C14113E0078C004 /* ViewImageViewController.m */; };
 		35BAAB771C116760006160E0 /* TripDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB761C116760006160E0 /* TripDetailTableViewController.m */; };
 		35BAAB7A1C116B12006160E0 /* TripDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB791C116B12006160E0 /* TripDay.m */; };
 		35D1D1EC1C0F4B70004753FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D1D1EB1C0F4B70004753FD /* main.m */; };
@@ -76,6 +77,8 @@
 		352FCB971C13F9360078C004 /* SightIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SightIcon.png; sourceTree = "<group>"; };
 		352FCB991C13F93F0078C004 /* FoodIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FoodIcon.png; sourceTree = "<group>"; };
 		352FCB9B1C13F96A0078C004 /* HouseIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HouseIcon.png; sourceTree = "<group>"; };
+		352FCBA11C14113E0078C004 /* ViewImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewImageViewController.h; sourceTree = "<group>"; };
+		352FCBA21C14113E0078C004 /* ViewImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewImageViewController.m; sourceTree = "<group>"; };
 		35BAAB751C116760006160E0 /* TripDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDetailTableViewController.h; sourceTree = "<group>"; };
 		35BAAB761C116760006160E0 /* TripDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripDetailTableViewController.m; sourceTree = "<group>"; };
 		35BAAB781C116B12006160E0 /* TripDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDay.h; sourceTree = "<group>"; };
@@ -295,6 +298,8 @@
 				352FCB881C12666E0078C004 /* TripDayTableViewController.m */,
 				35BAAB751C116760006160E0 /* TripDetailTableViewController.h */,
 				35BAAB761C116760006160E0 /* TripDetailTableViewController.m */,
+				352FCBA11C14113E0078C004 /* ViewImageViewController.h */,
+				352FCBA21C14113E0078C004 /* ViewImageViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				35D1D29E1C0FA417004753FD /* TravelDatabase.m in Sources */,
 				35D1D1F21C0F4B70004753FD /* ViewController.m in Sources */,
 				35D1D1EF1C0F4B70004753FD /* AppDelegate.m in Sources */,
+				352FCBA31C14113E0078C004 /* ViewImageViewController.m in Sources */,
 				352FCB8F1C1393410078C004 /* NewSightViewController.m in Sources */,
 				35BAAB7A1C116B12006160E0 /* TripDay.m in Sources */,
 				352FCB921C1393620078C004 /* NewHotelViewController.m in Sources */,

@@ -11,6 +11,7 @@
 #import "NewHotelViewController.h"
 #import "NewSightViewController.h"
 #import "TravelDatabase.h"
+#import "ViewImageViewController.h"
 
 @interface TripDayTableViewController ()
 
@@ -21,6 +22,8 @@
 @property (nonatomic) TravelDatabase* database;
 
 @property (nonatomic) bool haveImage;
+
+@property (nonatomic, strong) NSMutableArray *photos;
 @end
 
 @implementation TripDayTableViewController
@@ -230,7 +233,22 @@ static NSInteger const SightRowNumber = 3;
             picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             [self presentViewController:picker animated:YES completion:NULL];
         } else {
+            NSMutableArray* images = [_database getImagesForTripDay:_tripDayObj];
+            _photos = [[NSMutableArray alloc] init];
+            //[self performSegueWithIdentifier:kShowImageSegue sender:self];
+            MWPhotoBrowser* photoBrowser = [[MWPhotoBrowser alloc]initWithDelegate:self];
+            UINavigationController * nc = [[UINavigationController alloc]initWithRootViewController:photoBrowser];
             
+            for (int i=0; i<images.count; i++){
+                [_photos addObject:[MWPhoto photoWithImage:images[i]]];
+            }
+            
+            nc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            
+             
+            [photoBrowser setCurrentPhotoIndex:0];
+             
+            [self.navigationController presentViewController:nc animated:YES completion:nil];
         }
     }
 }
@@ -309,7 +327,24 @@ static NSInteger const SightRowNumber = 3;
         NewSightViewController* controller = segue.destinationViewController;
         controller.tripDay = _tripDay;
         controller.parentView = self;
+    } else if ([segue.identifier isEqualToString:kShowImageSegue]){
+        NSMutableArray* images = [_database getImagesForTripDay:_tripDayObj];
+        
+        ViewImageViewController* controller = segue.destinationViewController;
+        controller.rawPhotos = images;
+        
     }
+}
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return self.photos.count;
+}
+
+- (MWPhoto *)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < self.photos.count) {
+        return [self.photos objectAtIndex:index];
+    }
+    return nil;
 }
 
 

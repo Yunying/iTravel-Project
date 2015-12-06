@@ -10,8 +10,9 @@
 #import "TripDay.h"
 #import <Parse/Parse.h>
 #import "TripDetailTableViewController.h"
+#import "MWPhotoBrowser.h"
 
-@interface TripDayTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface TripDayTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, MWPhotoBrowserDelegate>
 
 @property(strong, nonatomic) NSString* tripName;
 @property(strong, nonatomic) TripDay* tripDay;

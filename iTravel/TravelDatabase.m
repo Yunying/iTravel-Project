@@ -138,8 +138,22 @@
             [obj save];
         }
     }];
+}
+
+- (NSMutableArray*) getImagesForTripDay: (PFObject*) inTrip {
+    PFQuery *query = [PFQuery queryWithClassName:kImageClass];
+    [query whereKey:@"parent" equalTo:inTrip];
+    NSArray* result = [query findObjects];
     
+    NSMutableArray* returnImages = [[NSMutableArray alloc]init];
     
+    for (int i=0; i<[result count]; i++){
+        PFFile* imageFile = ((PFObject*)result[i])[kImageFile];
+        NSData* data = [imageFile getData];
+        UIImage *image = [UIImage imageWithData:data];
+        [returnImages addObject: image];
+    }
+    return returnImages;
 }
 
 @end
