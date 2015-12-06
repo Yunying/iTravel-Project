@@ -15,9 +15,9 @@
     TripDay* trip = [[TripDay alloc]init];
     trip.tripDate = input[kDate];
     if (input[kTripDayCost]){
-        self.currentCost = [input[kTripDayCost] floatValue];
+        trip.currentCost = [input[kTripDayCost] floatValue];
     } else {
-        self.currentCost = 0.0f;
+        trip.currentCost = 0.0f;
     }
     trip.parseObj = input;
     return trip;

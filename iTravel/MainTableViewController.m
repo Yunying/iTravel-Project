@@ -139,8 +139,7 @@ static NSString * const cellIdentifier = @"TripCell";
         UITableViewCell *selectedCell=[self.tableView cellForRowAtIndexPath:path];
         NSString* placeName = selectedCell.textLabel.text;
         TravelTrip* selectedTrip = [self findPlaceWithName:placeName];
-        NSMutableArray* array = [_database getAllTripDaysForTrip:placeName];
-        selectedTrip.tripDays = array;
+        
         [detail setTrip:selectedTrip];
     }
     

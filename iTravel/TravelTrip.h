@@ -17,6 +17,7 @@
 @property(strong, nonatomic) NSString* endDate;
 @property(strong, nonatomic) NSString* budget;
 @property(nonatomic) float currentCost;
+@property(nonatomic) float lodgingCost;
 
 - (instancetype) constructFromPFObject: (PFObject*) input;
 - (NSString*) getDateRange;

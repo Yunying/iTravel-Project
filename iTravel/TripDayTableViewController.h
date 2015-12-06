@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TripDay.h"
 #import <Parse/Parse.h>
+#import "TripDetailTableViewController.h"
 
 @interface TripDayTableViewController : UITableViewController
 
@@ -17,6 +18,7 @@
 @property(strong, nonatomic) PFObject* tripDayObj;
 @property(nonatomic) bool endpoint;
 @property(nonatomic) NSArray* sights;
+@property(strong, nonatomic) TripDetailTableViewController* parentView;
 
 - (void) editTripDay: (UIBarButtonItem*) button;
 

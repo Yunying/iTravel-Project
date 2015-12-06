@@ -51,7 +51,7 @@ static NSString* const kSightTransport = @"Transportation";
 static NSString* const kSightAddress = @"SightAddress";
 
 //Utility
-static NSInteger const kGenerateDaysThreshold = 10;
+static NSInteger const kGenerateDaysThreshold = 20;
 
 
 #endif /* Constants_h */

@@ -53,6 +53,9 @@ static NSInteger const SightRowNumber = 3;
     }
     
     _sightNumber = _sights.count;
+    
+    [_parentView viewDidLoad];
+    [_parentView.tableView reloadData];
 }
 
 - (void) editTripDay: (UIBarButtonItem*) button {

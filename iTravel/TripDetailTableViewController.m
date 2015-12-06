@@ -36,12 +36,17 @@ static NSString * const cellIdentifier = @"TripDetailCell";
     //Global classes
     _util = [GlobalUtility sharedModel];
     _database = [TravelDatabase sharedModel];
+    NSMutableArray* array = [_database getAllTripDaysForTrip:_myTrip.name];
+    _myTrip.tripDays = array;
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.title = _myTrip.name;
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -186,7 +191,7 @@ static NSString * const cellIdentifier = @"TripDetailCell";
         } else {
             controller.endpoint = false;
         }
-        
+        controller.parentView = self;
         
     }
 }

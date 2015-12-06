@@ -105,6 +105,8 @@
     NSDate* end = [dateFormatter dateFromString:_endDate.text];
     
     NSArray* allDays = [_database getAllTripDayObjectsForTrip: _tripObj];
+    float numOfDays = 0.0f;
+    NSMutableArray* changedDays = [[NSMutableArray alloc] init];
     
     for (int i=0; i<allDays.count; i++){
         PFObject* thisObj = (PFObject*)allDays[i];
@@ -112,12 +114,29 @@
         NSDate* curr =[dateFormatter dateFromString:thisDate];
         bool inRange = [_util checkDateInRange:curr forStartDate:start forEndDate:end];
         if (inRange){
+            numOfDays++;
             thisObj[kHotelName] = _nameTextField.text;
             thisObj[kHotelAddress] = _addressTextField.text;
             thisObj[kHotelEmail] = _emailTextField.text;
             thisObj[kHotelPhone] = _phoneTextField.text;
             [thisObj save];
+            [changedDays addObject:thisObj];
         }
+    }
+    
+    float dailyCost = [_priceTextField.text floatValue]/numOfDays;
+    
+    for (int i=0; i<changedDays.count; i++){
+        PFObject* thisObj = (PFObject*)changedDays[i];
+
+        if (thisObj[kTripDayCost] == nil){
+            thisObj[kTripDayCost] = [NSString stringWithFormat:@"%1.2f", dailyCost];
+        } else {
+            float newCost = [thisObj[kTripDayCost] floatValue] + dailyCost;
+            thisObj[kTripDayCost] = [NSString stringWithFormat:@"%1.2f", newCost];
+
+        }
+        [thisObj save];
     }
     
     [_parentView viewDidLoad];
