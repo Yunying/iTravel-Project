@@ -15,6 +15,7 @@
 		352FCB981C13F9360078C004 /* SightIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 352FCB971C13F9360078C004 /* SightIcon.png */; };
 		352FCB9A1C13F93F0078C004 /* FoodIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 352FCB991C13F93F0078C004 /* FoodIcon.png */; };
 		352FCB9C1C13F96A0078C004 /* HouseIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 352FCB9B1C13F96A0078C004 /* HouseIcon.png */; };
+		352FCBA01C13FD1D0078C004 /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352FCB9F1C13FD1D0078C004 /* ImagePickerViewController.m */; };
 		35BAAB771C116760006160E0 /* TripDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB761C116760006160E0 /* TripDetailTableViewController.m */; };
 		35BAAB7A1C116B12006160E0 /* TripDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB791C116B12006160E0 /* TripDay.m */; };
 		35D1D1EC1C0F4B70004753FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D1D1EB1C0F4B70004753FD /* main.m */; };
@@ -74,6 +75,8 @@
 		352FCB971C13F9360078C004 /* SightIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SightIcon.png; sourceTree = "<group>"; };
 		352FCB991C13F93F0078C004 /* FoodIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FoodIcon.png; sourceTree = "<group>"; };
 		352FCB9B1C13F96A0078C004 /* HouseIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HouseIcon.png; sourceTree = "<group>"; };
+		352FCB9E1C13FD1D0078C004 /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerViewController.h; sourceTree = "<group>"; };
+		352FCB9F1C13FD1D0078C004 /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerViewController.m; sourceTree = "<group>"; };
 		35BAAB751C116760006160E0 /* TripDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDetailTableViewController.h; sourceTree = "<group>"; };
 		35BAAB761C116760006160E0 /* TripDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripDetailTableViewController.m; sourceTree = "<group>"; };
 		35BAAB781C116B12006160E0 /* TripDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDay.h; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 				352FCB8E1C1393410078C004 /* NewSightViewController.m */,
 				352FCB871C12666E0078C004 /* TripDayTableViewController.h */,
 				352FCB881C12666E0078C004 /* TripDayTableViewController.m */,
+				352FCB9E1C13FD1D0078C004 /* ImagePickerViewController.h */,
+				352FCB9F1C13FD1D0078C004 /* ImagePickerViewController.m */,
 				35BAAB751C116760006160E0 /* TripDetailTableViewController.h */,
 				35BAAB761C116760006160E0 /* TripDetailTableViewController.m */,
 			);
@@ -439,6 +444,7 @@
 				35D1D1EC1C0F4B70004753FD /* main.m in Sources */,
 				352FCB891C12666E0078C004 /* TripDayTableViewController.m in Sources */,
 				35D1D2A11C0FF370004753FD /* AddTripViewController.m in Sources */,
+				352FCBA01C13FD1D0078C004 /* ImagePickerViewController.m in Sources */,
 				35D1D2A41C114465004753FD /* GlobalUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

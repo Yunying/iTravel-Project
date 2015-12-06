@@ -106,6 +106,7 @@
                     <connections>
                         <segue destination="4ae-ad-q4r" kind="presentation" identifier="AddNewHotel" id="BQX-2h-jvn"/>
                         <segue destination="0jm-Hp-xNm" kind="presentation" identifier="AddNewSight" id="Yuu-nh-ppy"/>
+                        <segue destination="gPU-4s-65b" kind="presentation" identifier="ImagePicker" id="9W4-dS-qKb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PTu-Ed-s06" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -401,6 +402,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hb2-GA-Ji8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2842.5" y="-382.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8NT-lF-cx3">
+            <objects>
+                <viewController id="gPU-4s-65b" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="paj-9N-wqv"/>
+                        <viewControllerLayoutGuide type="bottom" id="GZH-Jp-OOO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6fr-AT-p1h">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d5s-HZ-uQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2842.5" y="278.25"/>
         </scene>
         <!--Main Table View Controller-->
         <scene sceneID="1ee-5Y-P62">

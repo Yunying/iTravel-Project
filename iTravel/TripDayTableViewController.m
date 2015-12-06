@@ -11,6 +11,7 @@
 #import "NewHotelViewController.h"
 #import "NewSightViewController.h"
 #import "TravelDatabase.h"
+#import "ImagePickerViewController.h"
 
 @interface TripDayTableViewController ()
 
@@ -185,6 +186,7 @@ static NSInteger const SightRowNumber = 3;
             break;
         case 3:
             cell.textLabel.text = @"Add Image";
+            cell.detailTextLabel.text = @"";
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             break;
     }
@@ -198,6 +200,13 @@ static NSInteger const SightRowNumber = 3;
         [self performSegueWithIdentifier:kAddNewSightSegue sender:self];
     } else if (indexPath.section == 2 && !_haveHotel){
         [self performSegueWithIdentifier:kAddNewHotelSegue sender:self];
+    } else if (indexPath.section == 3){
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        [self presentViewController:picker animated:YES completion:NULL];
 
     }
 }

@@ -11,7 +11,7 @@
 #import <Parse/Parse.h>
 #import "TripDetailTableViewController.h"
 
-@interface TripDayTableViewController : UITableViewController
+@interface TripDayTableViewController : UITableViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property(strong, nonatomic) NSString* tripName;
 @property(strong, nonatomic) TripDay* tripDay;
