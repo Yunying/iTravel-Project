@@ -15,6 +15,7 @@
 #import "CostDetailTableViewController.h"
 #import "EXFJpeg.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <MapKit/MapKit.h>
 
 @interface TripDayTableViewController ()
 
@@ -234,6 +235,15 @@ static NSInteger const SightRowNumber = 3;
     NSLog(@"section number: %ldl", (long)_sightNumber*SightRowNumber);
     if (indexPath.section == 1 && indexPath.row == _sightNumber*SightRowNumber){
         [self performSegueWithIdentifier:kAddNewSightSegue sender:self];
+    } else if (indexPath.section == 1 && indexPath.row%SightRowNumber == 2){
+
+        int sightIndex = indexPath.row / SightRowNumber;
+        PFObject* sight = (PFObject*)_sights[sightIndex];
+
+        NSString *addressOnMap = sight[kSightAddress];  //place name
+        NSString* addr = [NSString stringWithFormat:@"http://maps.apple.com/?q=%@",addressOnMap];
+        NSURL* url = [[NSURL alloc] initWithString:[addr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        [[UIApplication sharedApplication] openURL:url];
     } else if (indexPath.section == 2 && !_haveHotel){
         [self performSegueWithIdentifier:kAddNewHotelSegue sender:self];
     } else if (indexPath.section == 2 && _haveHotel){

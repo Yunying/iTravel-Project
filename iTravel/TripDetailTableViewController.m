@@ -141,6 +141,21 @@ static NSString * const cellIdentifier = @"TripDetailCell";
 
     } else if (indexPath.section == 0 && indexPath.row == 5){
         [self performSegueWithIdentifier:kMapViewSegue sender:self];
+        /*Class mapItemClass = [MKMapItem class];
+        if (mapItemClass && [mapItemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)])
+        {
+            // Create an MKMapItem to pass to the Maps app
+            CLLocationCoordinate2D coordinate =
+            CLLocationCoordinate2DMake(16.775, -3.009);
+            MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate
+                                                           addressDictionary:nil];
+            MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+            [mapItem setName:@"My Place"];
+            // Pass the map item to the Maps app
+            [mapItem openInMapsWithLaunchOptions:nil];
+            
+            
+        }*/
     }
 }
 
