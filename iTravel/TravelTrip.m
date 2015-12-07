@@ -40,7 +40,7 @@
     trip.startDate = input[kTripStartDate];
     trip.endDate = input[kTripEndDate];
     trip.budget = input[kTripBudget];
-    
+    trip.parseObj = input;
     return trip;
 }
 

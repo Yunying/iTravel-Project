@@ -13,6 +13,7 @@
 #import "Constants.h"
 #import "TripDayTableViewController.h"
 #import "TravelDatabase.h"
+#import "MapViewController.h"
 
 @interface TripDetailTableViewController()
 
@@ -62,7 +63,7 @@ static NSString * const cellIdentifier = @"TripDetailCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0){
-        return 5;
+        return 6;
     } else {
         //TODO
         NSLog(@"Number of trip days: %lu", (unsigned long)[_myTrip numberOfTripDays]);
@@ -114,6 +115,11 @@ static NSString * const cellIdentifier = @"TripDetailCell";
                                              _myTrip.getCurrentCost];
 
                 break;
+            case 5:
+                cell.textLabel.text = @"Image Locations";
+                cell.detailTextLabel.text = @"";
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
         }
     } else {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -133,6 +139,8 @@ static NSString * const cellIdentifier = @"TripDetailCell";
     if (indexPath.section == 1){
         [self performSegueWithIdentifier:kTripDayDetailSegue sender:self];
 
+    } else if (indexPath.section == 0 && indexPath.row == 5){
+        [self performSegueWithIdentifier:kMapViewSegue sender:self];
     }
 }
 
@@ -193,6 +201,10 @@ static NSString * const cellIdentifier = @"TripDetailCell";
         }
         controller.parentView = self;
         
+    } else if ([segue.identifier isEqualToString:kMapViewSegue]){
+        MapViewController* controller = segue.destinationViewController;
+        NSArray* imageLocations = _myTrip.parseObj[kImageLocations];
+        controller.locations = imageLocations;
     }
 }
 

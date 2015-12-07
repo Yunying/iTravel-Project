@@ -7,6 +7,63 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="71A-ni-2wz">
+            <objects>
+                <viewController id="6Cy-Se-FNY" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TEF-TO-kkZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="N9q-tL-AgX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DfJ-eu-uvP">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Wwx-dg-Zfi">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Wwx-dg-Zfi" firstAttribute="bottom" secondItem="N9q-tL-AgX" secondAttribute="top" id="9j2-Ik-0Vm"/>
+                            <constraint firstItem="Wwx-dg-Zfi" firstAttribute="top" secondItem="TEF-TO-kkZ" secondAttribute="bottom" id="qZM-eu-Txa"/>
+                            <constraint firstItem="Wwx-dg-Zfi" firstAttribute="leading" secondItem="DfJ-eu-uvP" secondAttribute="leadingMargin" id="s0F-Xj-0Fy">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                            </constraint>
+                            <constraint firstItem="Wwx-dg-Zfi" firstAttribute="trailing" secondItem="DfJ-eu-uvP" secondAttribute="trailingMargin" id="znv-sq-c0Y">
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Wwx-dg-Zfi"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="9j2-Ik-0Vm"/>
+                                <exclude reference="qZM-eu-Txa"/>
+                                <exclude reference="s0F-Xj-0Fy"/>
+                                <exclude reference="znv-sq-c0Y"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Wwx-dg-Zfi"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="9j2-Ik-0Vm"/>
+                                <include reference="qZM-eu-Txa"/>
+                                <include reference="s0F-Xj-0Fy"/>
+                                <include reference="znv-sq-c0Y"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="Wwx-dg-Zfi" id="KgC-it-4ji"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y4b-ZO-6BO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1303.5" y="-1048.5"/>
+        </scene>
         <!--Trip Detail Table View Controller-->
         <scene sceneID="gY4-sc-jrQ">
             <objects>
@@ -57,6 +114,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="YFM-9r-Prq" kind="show" identifier="TripDayDetail" id="csw-6n-EH1"/>
+                        <segue destination="6Cy-Se-FNY" kind="show" identifier="ShowMapView" id="5lL-GI-hsU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JrJ-ah-Bvs" userLabel="First Responder" sceneMemberID="firstResponder"/>

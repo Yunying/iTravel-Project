@@ -18,6 +18,8 @@
 		352FCBA61C1420F20078C004 /* EditSingleItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352FCBA51C1420F20078C004 /* EditSingleItemViewController.m */; };
 		352FCBAC1C1506A10078C004 /* CostDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352FCBAB1C1506A10078C004 /* CostDetailTableViewController.m */; };
 		352FCBC51C156C460078C004 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352FCBC41C156C460078C004 /* AssetsLibrary.framework */; };
+		352FCBC71C15780E0078C004 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352FCBC61C15780E0078C004 /* MapKit.framework */; };
+		352FCBCA1C1579700078C004 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352FCBC91C1579700078C004 /* MapViewController.m */; };
 		35BAAB771C116760006160E0 /* TripDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB761C116760006160E0 /* TripDetailTableViewController.m */; };
 		35BAAB7A1C116B12006160E0 /* TripDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB791C116B12006160E0 /* TripDay.m */; };
 		35D1D1EC1C0F4B70004753FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D1D1EB1C0F4B70004753FD /* main.m */; };
@@ -95,6 +97,9 @@
 		352FCBC01C156ACF0078C004 /* EXFTagDefinitionHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXFTagDefinitionHolder.h; path = "../../Downloads/iphone-exif-0-9.1/Release-simulator-iphonesimulator/usr/local/include/EXFTagDefinitionHolder.h"; sourceTree = "<group>"; };
 		352FCBC11C156ACF0078C004 /* EXFUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXFUtils.h; path = "../../Downloads/iphone-exif-0-9.1/Release-simulator-iphonesimulator/usr/local/include/EXFUtils.h"; sourceTree = "<group>"; };
 		352FCBC41C156C460078C004 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		352FCBC61C15780E0078C004 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		352FCBC81C1579700078C004 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		352FCBC91C1579700078C004 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		35BAAB751C116760006160E0 /* TripDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDetailTableViewController.h; sourceTree = "<group>"; };
 		35BAAB761C116760006160E0 /* TripDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripDetailTableViewController.m; sourceTree = "<group>"; };
 		35BAAB781C116B12006160E0 /* TripDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDay.h; sourceTree = "<group>"; };
@@ -148,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				352FCBC71C15780E0078C004 /* MapKit.framework in Frameworks */,
 				352FCBC51C156C460078C004 /* AssetsLibrary.framework in Frameworks */,
 				35D1D2361C0F4CD1004753FD /* Social.framework in Frameworks */,
 				35D1D2341C0F4CCD004753FD /* Accounts.framework in Frameworks */,
@@ -283,6 +289,7 @@
 		35D1D23B1C0F5480004753FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				352FCBC61C15780E0078C004 /* MapKit.framework */,
 				352FCBC41C156C460078C004 /* AssetsLibrary.framework */,
 				352FCBB61C156A9C0078C004 /* libiphone-exif.a */,
 				35D1D2391C0F4D4E004753FD /* Bolts.framework */,
@@ -339,6 +346,8 @@
 				35BAAB761C116760006160E0 /* TripDetailTableViewController.m */,
 				352FCBA41C1420F20078C004 /* EditSingleItemViewController.h */,
 				352FCBA51C1420F20078C004 /* EditSingleItemViewController.m */,
+				352FCBC81C1579700078C004 /* MapViewController.h */,
+				352FCBC91C1579700078C004 /* MapViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -549,6 +558,7 @@
 				35D1D29B1C0FA16B004753FD /* TravelTrip.m in Sources */,
 				35BAAB771C116760006160E0 /* TripDetailTableViewController.m in Sources */,
 				35D1D2981C0F781F004753FD /* MainTableViewController.m in Sources */,
+				352FCBCA1C1579700078C004 /* MapViewController.m in Sources */,
 				35D1D1EC1C0F4B70004753FD /* main.m in Sources */,
 				352FCB891C12666E0078C004 /* TripDayTableViewController.m in Sources */,
 				35D1D2A11C0FF370004753FD /* AddTripViewController.m in Sources */,
