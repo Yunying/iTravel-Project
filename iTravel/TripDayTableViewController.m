@@ -279,17 +279,18 @@ static NSInteger const SightRowNumber = 3;
             NSMutableArray* images = [_database getImagesForTripDay:_tripDayObj];
             _photos = [[NSMutableArray alloc] init];
             //[self performSegueWithIdentifier:kShowImageSegue sender:self];
-            MWPhotoBrowser* photoBrowser = [[MWPhotoBrowser alloc]initWithDelegate:self];
-            UINavigationController * nc = [[UINavigationController alloc]initWithRootViewController:photoBrowser];
+            MWPhotoBrowser* browser = [[MWPhotoBrowser alloc]initWithDelegate:self];
+            UINavigationController * nc = [[UINavigationController alloc]initWithRootViewController:browser];
             
             for (int i=0; i<images.count; i++){
                 [_photos addObject:[MWPhoto photoWithImage:images[i]]];
             }
             
             nc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            
+            browser.enableGrid = YES;
+            browser.startOnGrid = YES;
              
-            [photoBrowser setCurrentPhotoIndex:0];
+            [browser setCurrentPhotoIndex:0];
              
             [self.navigationController presentViewController:nc animated:YES completion:nil];
         }
@@ -425,6 +426,12 @@ static NSInteger const SightRowNumber = 3;
     return nil;
 }
 
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser thumbPhotoAtIndex:(NSUInteger)index {
+    if (index < self.photos.count) {
+        return [self.photos objectAtIndex:index];
+    }
+    return nil;
+}
 
 #pragma mark - Navigation
 
