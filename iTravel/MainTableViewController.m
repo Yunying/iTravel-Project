@@ -7,7 +7,6 @@
 //
 
 #import "MainTableViewController.h"
-#import <Parse/Parse.h>
 #import "Constants.h"
 #import "TravelDatabase.h"
 #import "AddTripViewController.h"

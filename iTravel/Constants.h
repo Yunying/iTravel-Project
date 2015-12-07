@@ -21,12 +21,14 @@ static NSString* const kEditSingleItemSegue = @"EditSingleItem";
 static NSString* const kCostDetailSegue = @"CostDetail";
 static NSString* const kMapViewSegue = @"ShowMapView";
 static NSString* const kSharedTripSegue = @"SharedTripDetail";
+static NSString* const kLoginSegue = @"Login";
 
 //Class Names
 static NSString* const kTripClass = @"Trip";
 static NSString* const kTripDayClass = @"TripDay";
 static NSString* const kSightClass = @"Sight";
 static NSString* const kImageClass = @"TripImage";
+static NSString* const kUserClass = @"User";
 
 //Travel
 static NSString* const kTripName = @"Name";
@@ -34,6 +36,7 @@ static NSString* const kTripStartDate = @"StartDate";
 static NSString* const kTripEndDate = @"EndDate";
 static NSString* const kTripBudget = @"Budget";
 static NSString* const kImageLocations = @"ImageLocation";
+static NSString* const kTripParent = @"parent";
 
 //Flight
 static NSString* const kFlightDeparture = @"DepartTime"; //DateTime
@@ -65,6 +68,10 @@ static NSString* const kSightCost = @"SightCost";
 //Image
 static NSString* const kImageFile = @"ImageFile";
 static NSString* const kImageParent = @"parent";
+
+//User
+static NSString* const kUsername = @"Username";
+static NSString* const kPassword = @"Password";
 
 //Utility
 static NSInteger const kGenerateDaysThreshold = 20;

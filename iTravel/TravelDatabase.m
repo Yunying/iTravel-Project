@@ -174,4 +174,19 @@
     return result;
 }
 
+- (void) saveNewUser: (NSString*) username withPassword: (NSString*) password {
+    PFObject* obj = [PFObject objectWithClassName:kUserClass];
+    obj[kUsername] = username;
+    obj[kPassword] = password;
+    [obj save];
+}
+
+- (PFObject*) getUser: (NSString*)username withPassword: (NSString*) password {
+    PFQuery* query = [PFQuery queryWithClassName:kUserClass];
+    [query whereKey:kUsername equalTo:username];
+    [query whereKey:kPassword equalTo:password];
+    PFObject* obj = [query getFirstObject];
+    return obj;
+}
+
 @end
