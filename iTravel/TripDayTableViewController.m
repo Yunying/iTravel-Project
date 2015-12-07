@@ -413,6 +413,7 @@ static NSInteger const SightRowNumber = 3;
         controller.dayType = true;
         controller.tripDay = _tripDay.parseObj;
         controller.sights = _sights;
+        controller.parentView = self;
     }
 }
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "TripDayTableViewController.h"
 
 @interface CostDetailTableViewController : UITableViewController
 
@@ -18,5 +19,7 @@
 @property (strong, nonatomic) NSArray* sights;
 
 @property (strong, nonatomic) NSMutableArray* others;
+
+@property (strong, nonatomic) TripDayTableViewController* parentView;
 
 @end

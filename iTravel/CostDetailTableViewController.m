@@ -184,7 +184,10 @@ static NSString * const cellIdentifier = @"CostDetailCell";
                     [_editItem save];
                 }
                 
+                [self viewDidLoad];
                 [self.tableView reloadData];
+                [_parentView viewDidLoad];
+                [_parentView.tableView reloadData];
             }
             [self dismissViewControllerAnimated:YES completion:nil];
         };
