@@ -16,6 +16,7 @@
 		352FCB9A1C13F93F0078C004 /* FoodIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 352FCB991C13F93F0078C004 /* FoodIcon.png */; };
 		352FCB9C1C13F96A0078C004 /* HouseIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 352FCB9B1C13F96A0078C004 /* HouseIcon.png */; };
 		352FCBA61C1420F20078C004 /* EditSingleItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352FCBA51C1420F20078C004 /* EditSingleItemViewController.m */; };
+		352FCBAC1C1506A10078C004 /* CostDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352FCBAB1C1506A10078C004 /* CostDetailTableViewController.m */; };
 		35BAAB771C116760006160E0 /* TripDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB761C116760006160E0 /* TripDetailTableViewController.m */; };
 		35BAAB7A1C116B12006160E0 /* TripDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB791C116B12006160E0 /* TripDay.m */; };
 		35D1D1EC1C0F4B70004753FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D1D1EB1C0F4B70004753FD /* main.m */; };
@@ -79,6 +80,8 @@
 		352FCB9B1C13F96A0078C004 /* HouseIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HouseIcon.png; sourceTree = "<group>"; };
 		352FCBA41C1420F20078C004 /* EditSingleItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSingleItemViewController.h; sourceTree = "<group>"; };
 		352FCBA51C1420F20078C004 /* EditSingleItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSingleItemViewController.m; sourceTree = "<group>"; };
+		352FCBAA1C1506A10078C004 /* CostDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostDetailTableViewController.h; sourceTree = "<group>"; };
+		352FCBAB1C1506A10078C004 /* CostDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostDetailTableViewController.m; sourceTree = "<group>"; };
 		35BAAB751C116760006160E0 /* TripDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDetailTableViewController.h; sourceTree = "<group>"; };
 		35BAAB761C116760006160E0 /* TripDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripDetailTableViewController.m; sourceTree = "<group>"; };
 		35BAAB781C116B12006160E0 /* TripDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDay.h; sourceTree = "<group>"; };
@@ -288,6 +291,8 @@
 			children = (
 				35D1D29F1C0FF370004753FD /* AddTripViewController.h */,
 				35D1D2A01C0FF370004753FD /* AddTripViewController.m */,
+				352FCBAA1C1506A10078C004 /* CostDetailTableViewController.h */,
+				352FCBAB1C1506A10078C004 /* CostDetailTableViewController.m */,
 				35D1D2961C0F781F004753FD /* MainTableViewController.h */,
 				35D1D2971C0F781F004753FD /* MainTableViewController.m */,
 				352FCB901C1393620078C004 /* NewHotelViewController.h */,
@@ -504,6 +509,7 @@
 				35D1D1EF1C0F4B70004753FD /* AppDelegate.m in Sources */,
 				352FCB8F1C1393410078C004 /* NewSightViewController.m in Sources */,
 				35BAAB7A1C116B12006160E0 /* TripDay.m in Sources */,
+				352FCBAC1C1506A10078C004 /* CostDetailTableViewController.m in Sources */,
 				352FCBA61C1420F20078C004 /* EditSingleItemViewController.m in Sources */,
 				352FCB921C1393620078C004 /* NewHotelViewController.m in Sources */,
 				35D1D29B1C0FA16B004753FD /* TravelTrip.m in Sources */,

@@ -18,6 +18,7 @@ static NSString* const kAddNewHotelSegue = @"AddNewHotel";
 static NSString* const kAddNewSightSegue = @"AddNewSight";
 static NSString* const kShowImageSegue = @"ShowImages";
 static NSString* const kEditSingleItemSegue = @"EditSingleItem";
+static NSString* const kCostDetailSegue = @"CostDetail";
 
 //Class Names
 static NSString* const kTripClass = @"Trip";

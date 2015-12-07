@@ -12,6 +12,7 @@
 #import "NewSightViewController.h"
 #import "TravelDatabase.h"
 #import "EditSingleItemViewController.h"
+#import "CostDetailTableViewController.h"
 
 @interface TripDayTableViewController ()
 
@@ -284,7 +285,8 @@ static NSInteger const SightRowNumber = 3;
         _itemTitle = @"Edit Itinerary";
         _itemConst = kTripDaySummary;
         [self performSegueWithIdentifier:kEditSingleItemSegue sender:self];
-
+    } else if (indexPath.section == 0 && indexPath.row == 2) {
+        [self performSegueWithIdentifier:kCostDetailSegue sender:self];
     }
 }
 
@@ -406,6 +408,11 @@ static NSInteger const SightRowNumber = 3;
             }
             [self dismissViewControllerAnimated:YES completion:nil];
         };
+    } else if ([segue.identifier isEqualToString:kCostDetailSegue]){
+        CostDetailTableViewController* controller = segue.destinationViewController;
+        controller.dayType = true;
+        controller.tripDay = _tripDay.parseObj;
+        controller.sights = _sights;
     }
 }
 
