@@ -21,6 +21,7 @@
 - (NSMutableArray*) getAllTripDaysForTrip: (NSString*) inTrip;
 - (NSArray*) getAllTripDayObjectsForTrip: (PFObject*) inTrip;
 - (TripDay*) getTripDayDetail: (TravelTrip*) parentTrip withDate: (NSString*) inDate;
+- (PFObject*) getImageObjectForFile: (PFFile*) inFile;
 
 - (NSArray*) getSightsForTripDay: (PFObject*) inDay;
 - (NSMutableArray*) getImagesForTripDay: (PFObject*) inTrip;
@@ -31,5 +32,6 @@
 - (void) saveNewTrip: (TravelTrip*) inTrip;
 - (void) saveNewTripDays: (NSMutableArray*) inDays forTrip: (PFObject*) inTrip;
 - (void) saveImage: (UIImage*) image forTripDay: (PFObject*) inTrip;
+
 
 @end

@@ -17,6 +17,7 @@
 		352FCB9C1C13F96A0078C004 /* HouseIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 352FCB9B1C13F96A0078C004 /* HouseIcon.png */; };
 		352FCBA61C1420F20078C004 /* EditSingleItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352FCBA51C1420F20078C004 /* EditSingleItemViewController.m */; };
 		352FCBAC1C1506A10078C004 /* CostDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352FCBAB1C1506A10078C004 /* CostDetailTableViewController.m */; };
+		352FCBC51C156C460078C004 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352FCBC41C156C460078C004 /* AssetsLibrary.framework */; };
 		35BAAB771C116760006160E0 /* TripDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB761C116760006160E0 /* TripDetailTableViewController.m */; };
 		35BAAB7A1C116B12006160E0 /* TripDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BAAB791C116B12006160E0 /* TripDay.m */; };
 		35D1D1EC1C0F4B70004753FD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D1D1EB1C0F4B70004753FD /* main.m */; };
@@ -82,6 +83,18 @@
 		352FCBA51C1420F20078C004 /* EditSingleItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSingleItemViewController.m; sourceTree = "<group>"; };
 		352FCBAA1C1506A10078C004 /* CostDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostDetailTableViewController.h; sourceTree = "<group>"; };
 		352FCBAB1C1506A10078C004 /* CostDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostDetailTableViewController.m; sourceTree = "<group>"; };
+		352FCBB61C156A9C0078C004 /* libiphone-exif.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libiphone-exif.a"; path = "../Downloads/iphone-exif-0-9.1/Release-simulator-iphonesimulator/libiphone-exif.a"; sourceTree = "<group>"; };
+		352FCBB81C156ACF0078C004 /* EXF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXF.h; path = "../../Downloads/iphone-exif-0-9.1/Release-simulator-iphonesimulator/usr/local/include/EXF.h"; sourceTree = "<group>"; };
+		352FCBB91C156ACF0078C004 /* EXFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXFConstants.h; path = "../../Downloads/iphone-exif-0-9.1/Release-simulator-iphonesimulator/usr/local/include/EXFConstants.h"; sourceTree = "<group>"; };
+		352FCBBA1C156ACF0078C004 /* EXFGPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXFGPS.h; path = "../../Downloads/iphone-exif-0-9.1/Release-simulator-iphonesimulator/usr/local/include/EXFGPS.h"; sourceTree = "<group>"; };
+		352FCBBB1C156ACF0078C004 /* EXFHandlers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXFHandlers.h; path = "../../Downloads/iphone-exif-0-9.1/Release-simulator-iphonesimulator/usr/local/include/EXFHandlers.h"; sourceTree = "<group>"; };
+		352FCBBC1C156ACF0078C004 /* EXFJFIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXFJFIF.h; path = "../../Downloads/iphone-exif-0-9.1/Release-simulator-iphonesimulator/usr/local/include/EXFJFIF.h"; sourceTree = "<group>"; };
+		352FCBBD1C156ACF0078C004 /* EXFJpeg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXFJpeg.h; path = "../../Downloads/iphone-exif-0-9.1/Release-simulator-iphonesimulator/usr/local/include/EXFJpeg.h"; sourceTree = "<group>"; };
+		352FCBBE1C156ACF0078C004 /* EXFLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXFLogging.h; path = "../../Downloads/iphone-exif-0-9.1/Release-simulator-iphonesimulator/usr/local/include/EXFLogging.h"; sourceTree = "<group>"; };
+		352FCBBF1C156ACF0078C004 /* EXFMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXFMetaData.h; path = "../../Downloads/iphone-exif-0-9.1/Release-simulator-iphonesimulator/usr/local/include/EXFMetaData.h"; sourceTree = "<group>"; };
+		352FCBC01C156ACF0078C004 /* EXFTagDefinitionHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXFTagDefinitionHolder.h; path = "../../Downloads/iphone-exif-0-9.1/Release-simulator-iphonesimulator/usr/local/include/EXFTagDefinitionHolder.h"; sourceTree = "<group>"; };
+		352FCBC11C156ACF0078C004 /* EXFUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EXFUtils.h; path = "../../Downloads/iphone-exif-0-9.1/Release-simulator-iphonesimulator/usr/local/include/EXFUtils.h"; sourceTree = "<group>"; };
+		352FCBC41C156C460078C004 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		35BAAB751C116760006160E0 /* TripDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDetailTableViewController.h; sourceTree = "<group>"; };
 		35BAAB761C116760006160E0 /* TripDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripDetailTableViewController.m; sourceTree = "<group>"; };
 		35BAAB781C116B12006160E0 /* TripDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripDay.h; sourceTree = "<group>"; };
@@ -135,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				352FCBC51C156C460078C004 /* AssetsLibrary.framework in Frameworks */,
 				35D1D2361C0F4CD1004753FD /* Social.framework in Frameworks */,
 				35D1D2341C0F4CCD004753FD /* Accounts.framework in Frameworks */,
 				35D1D2321C0F4CBC004753FD /* libsqlite3.tbd in Frameworks */,
@@ -181,6 +195,23 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
+		352FCBC31C156ADE0078C004 /* EXF */ = {
+			isa = PBXGroup;
+			children = (
+				352FCBB81C156ACF0078C004 /* EXF.h */,
+				352FCBB91C156ACF0078C004 /* EXFConstants.h */,
+				352FCBBA1C156ACF0078C004 /* EXFGPS.h */,
+				352FCBBB1C156ACF0078C004 /* EXFHandlers.h */,
+				352FCBBC1C156ACF0078C004 /* EXFJFIF.h */,
+				352FCBBD1C156ACF0078C004 /* EXFJpeg.h */,
+				352FCBBE1C156ACF0078C004 /* EXFLogging.h */,
+				352FCBBF1C156ACF0078C004 /* EXFMetaData.h */,
+				352FCBC01C156ACF0078C004 /* EXFTagDefinitionHolder.h */,
+				352FCBC11C156ACF0078C004 /* EXFUtils.h */,
+			);
+			name = EXF;
+			sourceTree = "<group>";
+		};
 		35D1D1DE1C0F4B70004753FD = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +237,7 @@
 		35D1D1E91C0F4B70004753FD /* iTravel */ = {
 			isa = PBXGroup;
 			children = (
+				352FCBC31C156ADE0078C004 /* EXF */,
 				35D1D2411C0F6118004753FD /* View */,
 				35D1D23C1C0F5DE1004753FD /* Model */,
 				35D1D1ED1C0F4B70004753FD /* AppDelegate.h */,
@@ -251,6 +283,8 @@
 		35D1D23B1C0F5480004753FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				352FCBC41C156C460078C004 /* AssetsLibrary.framework */,
+				352FCBB61C156A9C0078C004 /* libiphone-exif.a */,
 				35D1D2391C0F4D4E004753FD /* Bolts.framework */,
 				35D1D2371C0F4D44004753FD /* Parse.framework */,
 				35D1D2351C0F4CD1004753FD /* Social.framework */,
@@ -667,6 +701,11 @@
 				INFOPLIST_FILE = iTravel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iphone-exif-0-9.1/Release-iphoneos",
+					"$(PROJECT_DIR)/iphone-exif-0-9.1/Release-simulator-iphonesimulator",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.usc.iTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -687,6 +726,11 @@
 				INFOPLIST_FILE = iTravel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iphone-exif-0-9.1/Release-iphoneos",
+					"$(PROJECT_DIR)/iphone-exif-0-9.1/Release-simulator-iphonesimulator",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = edu.usc.iTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

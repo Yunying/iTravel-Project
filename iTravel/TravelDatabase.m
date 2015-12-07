@@ -127,6 +127,7 @@
     
     NSData* data = UIImageJPEGRepresentation(image, 0.5f);
     PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:data];
+
     
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
@@ -136,6 +137,7 @@
             obj[kImageParent] = inTrip;
             
             [obj save];
+            
         }
     }];
 }
@@ -162,6 +164,14 @@
     inTrip[kTripDayCost] = [NSString stringWithFormat:@"%1.2f", dayCost];
     inTrip[kTripDaySightCost] = [NSString stringWithFormat:@"%1.2f", sightCost];
     [inTrip save];
+}
+
+- (PFObject*) getImageObjectForFile: (PFFile*) inFile {
+    PFQuery* query = [PFQuery queryWithClassName:kImageClass];
+    [query whereKey:kImageFile equalTo:inFile];
+    PFObject* result = [query getFirstObject];
+    
+    return result;
 }
 
 @end

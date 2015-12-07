@@ -13,6 +13,8 @@
 #import "TravelDatabase.h"
 #import "EditSingleItemViewController.h"
 #import "CostDetailTableViewController.h"
+#import "EXFJpeg.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface TripDayTableViewController ()
 
@@ -293,6 +295,40 @@ static NSInteger const SightRowNumber = 3;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    
+    NSURL *referenceURL = [info objectForKey:UIImagePickerControllerReferenceURL];
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library assetForURL:referenceURL resultBlock:^(ALAsset *asset) {
+        ALAssetRepresentation *rep = [asset defaultRepresentation];
+        NSDictionary *metadata = rep.metadata;
+        NSDictionary* gpsData = (NSDictionary*)[metadata objectForKey:@"{GPS}"];
+        NSString* latitude = (NSString*)[gpsData objectForKey:@"Latitude"];
+        NSString* longtitude = (NSString*)[gpsData objectForKey:@"Longitude"];
+        
+        NSDictionary* locationDic = [[NSDictionary alloc] initWithObjectsAndKeys:latitude, @"Latitude",
+        longtitude, @"Longitude", nil];
+        
+        PFObject* travelObj = (PFObject*)_tripDayObj[kRelatedTrip];
+        [travelObj fetch];
+        NSArray* imageLocations = travelObj[kImageLocations];
+        NSMutableArray *updateLocations;
+        if (imageLocations != nil){
+            updateLocations = [[NSMutableArray alloc] initWithArray:imageLocations];
+        } else {
+            updateLocations = [[NSMutableArray alloc]init];
+        }
+        
+        [updateLocations addObject:locationDic];
+        
+        travelObj[kImageLocations] = updateLocations;
+        [travelObj save];
+
+    } failureBlock:^(NSError *error) {
+        // error handling
+    }];
+    
+    //Save Image
+    
     [_database saveImage:chosenImage forTripDay:_tripDayObj];
     
     if (_tripDayObj[kTripDayImageCount] == nil){

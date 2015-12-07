@@ -31,6 +31,7 @@ static NSString* const kTripName = @"Name";
 static NSString* const kTripStartDate = @"StartDate";
 static NSString* const kTripEndDate = @"EndDate";
 static NSString* const kTripBudget = @"Budget";
+static NSString* const kImageLocations = @"ImageLocation";
 
 //Flight
 static NSString* const kFlightDeparture = @"DepartTime"; //DateTime
