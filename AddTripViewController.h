@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MainTableViewController.h"
+#import <Parse/Parse.h>
 
 typedef bool (^AddTripCompletionHandler)(NSString* inName, NSString* inStartDate,
                                          NSString* inEndDate, NSString* inBudget);
@@ -16,5 +17,7 @@ typedef bool (^AddTripCompletionHandler)(NSString* inName, NSString* inStartDate
 
 @property(copy, nonatomic) AddTripCompletionHandler completionHandler;
 @property(weak, nonatomic) MainTableViewController* parentView;
+
+@property(nonatomic) PFObject* myUser;
 
 @end

@@ -9,14 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "TravelTrip.h"
 #import "TripDay.h"
+#import <Parse/Parse.h>
 
 @interface TravelDatabase : NSObject
+
+@property (strong, nonatomic) PFObject* currentUser;
 
 + (instancetype) sharedModel;
 
 - (void) reloadTripDay: (TripDay*) inTrip;
 
 - (NSArray*) getAllTripsFromDatabase;
+- (NSArray*) getAllTripsFromDatabaseForUser: (PFObject*) inUser;
+
+
 - (PFObject*) getTripForName: (NSString*) inName;
 - (NSMutableArray*) getAllTripDaysForTrip: (NSString*) inTrip;
 - (NSArray*) getAllTripDayObjectsForTrip: (PFObject*) inTrip;

@@ -7,7 +7,7 @@
 //
 
 #import "TravelDatabase.h"
-#import <Parse/Parse.h>
+
 #import "Constants.h"
 #import "TripDay.h"
 
@@ -30,8 +30,22 @@
     return _sharedModel;
 }
 
+@synthesize currentUser;
+
 - (NSArray*) getAllTripsFromDatabase {
     PFQuery *query = [PFQuery queryWithClassName:kTripClass];
+    NSArray* objects = [query findObjects];
+    _trips = [[NSMutableArray alloc] init];
+    for (int i=0; i<objects.count; i++){
+        TravelTrip* newTrip = [[TravelTrip alloc]constructFromPFObject:objects[i]];
+        [_trips addObject:newTrip];
+    }
+    return _trips;
+}
+
+- (NSArray*) getAllTripsFromDatabaseForUser: (PFObject*) inUser {
+    PFQuery *query = [PFQuery queryWithClassName:kTripClass];
+    [query whereKey:kTripParent equalTo:inUser];
     NSArray* objects = [query findObjects];
     _trips = [[NSMutableArray alloc] init];
     for (int i=0; i<objects.count; i++){
@@ -80,9 +94,8 @@
     }
     if (kTripBudget){
         obj[kTripBudget] = inTrip.budget;
-
     }
-    
+    obj[kTripParent] = currentUser;
     [obj save];
     [self saveNewTripDays:[inTrip tripDays] forTrip:obj];
 }

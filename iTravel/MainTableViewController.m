@@ -47,7 +47,7 @@ static NSString * const cellIdentifier = @"TripCell";
     
     //Read from Parse Database
     _database = [TravelDatabase sharedModel];
-    _trips = [_database getAllTripsFromDatabase];
+    _trips = [_database getAllTripsFromDatabaseForUser: _myUser];
     [self.tableView reloadData];
     
 }

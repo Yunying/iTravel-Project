@@ -64,6 +64,7 @@
                                withPassword:_passwordTextfield.text];
         if (user != nil){
             _myUser = user;
+            _database.currentUser = user;
             [self performSegueWithIdentifier:kLoginSegue sender:self];
         } else {
             [self loginFailed];
