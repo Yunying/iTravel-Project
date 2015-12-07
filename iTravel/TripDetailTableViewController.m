@@ -63,7 +63,7 @@ static NSString * const cellIdentifier = @"TripDetailCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0){
-        return 6;
+        return 7;
     } else {
         //TODO
         NSLog(@"Number of trip days: %lu", (unsigned long)[_myTrip numberOfTripDays]);
@@ -119,6 +119,10 @@ static NSString * const cellIdentifier = @"TripDetailCell";
                 cell.textLabel.text = @"Image Locations";
                 cell.detailTextLabel.text = @"";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 6:
+                cell.textLabel.text = @"Share Code";
+                cell.detailTextLabel.text = _myTrip.parseObj.objectId;
                 break;
         }
     } else {

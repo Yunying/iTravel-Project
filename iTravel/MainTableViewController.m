@@ -19,6 +19,8 @@
 @property(strong, nonatomic) TravelDatabase* database;
 @property(strong, nonatomic) NSArray* trips;
 
+@property(strong, nonatomic) TravelTrip* showTrip;
+
 @end
 
 @implementation MainTableViewController
@@ -39,6 +41,11 @@ static NSString * const cellIdentifier = @"TripCell";
                                   target:self action:@selector(addButtonPressed:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
+    UIBarButtonItem *bookmarkButton = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
+                                  target:self action:@selector(bookmarkButtonPressed:)];
+    self.navigationItem.leftBarButtonItem = bookmarkButton;
+    
     //Read from Parse Database
     _database = [TravelDatabase sharedModel];
     _trips = [_database getAllTripsFromDatabase];
@@ -48,6 +55,29 @@ static NSString * const cellIdentifier = @"TripCell";
 
 - (void) addButtonPressed: (UIBarButtonItem*) button {
     [self performSegueWithIdentifier:kAddTripSegue sender:self];
+}
+
+- (void) bookmarkButtonPressed: (UIBarButtonItem*) button {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Open Trip"
+                                                message:@"Give us the trip code you wish to see!"
+                                                preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Open" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        NSString* tripCode = alert.textFields[0].text;
+        PFQuery* query = [PFQuery queryWithClassName:kTripClass];
+        PFObject* obj = [query getObjectWithId:tripCode];
+        if (obj != nil){
+            _showTrip = [[TravelTrip alloc] constructFromPFObject:obj];
+            [self performSegueWithIdentifier:kSharedTripSegue sender:self];
+        }
+        
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Trip Code";
+    }];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -141,6 +171,11 @@ static NSString * const cellIdentifier = @"TripCell";
         TravelTrip* selectedTrip = [self findPlaceWithName:placeName];
         
         [detail setTrip:selectedTrip];
+    } else if ([segue.identifier isEqualToString:kSharedTripSegue]){
+        TripDetailTableViewController* detail = segue.destinationViewController;
+        [detail setTrip:_showTrip];
+        
+
     }
     
 }

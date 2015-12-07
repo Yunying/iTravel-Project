@@ -16,6 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="N9q-tL-AgX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DfJ-eu-uvP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Wwx-dg-Zfi">
@@ -470,6 +471,7 @@
                         <viewControllerLayoutGuide type="bottom" id="HYC-hy-l8c"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JDE-yP-Cc2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ot-sV-t0j">
@@ -502,13 +504,13 @@
                                 <exclude reference="gzo-hx-2en"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="T8t-QN-Js0"/>
                                 <exclude reference="UJJ-Dy-syV"/>
                                 <exclude reference="ap6-kI-yqz"/>
                                 <exclude reference="uOc-PK-EQU"/>
                                 <exclude reference="9Vf-64-GWv"/>
                                 <exclude reference="Fzk-NL-mFg"/>
                                 <exclude reference="aqc-cp-eUj"/>
-                                <exclude reference="T8t-QN-Js0"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -517,13 +519,13 @@
                                 <include reference="gzo-hx-2en"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="T8t-QN-Js0"/>
                                 <include reference="UJJ-Dy-syV"/>
                                 <include reference="ap6-kI-yqz"/>
                                 <include reference="uOc-PK-EQU"/>
                                 <include reference="9Vf-64-GWv"/>
                                 <include reference="Fzk-NL-mFg"/>
                                 <include reference="aqc-cp-eUj"/>
-                                <include reference="T8t-QN-Js0"/>
                             </mask>
                         </variation>
                     </view>
@@ -541,15 +543,19 @@
             <objects>
                 <tableViewController id="eTU-n4-Epe" customClass="CostDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="kU3-UF-QGo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CostDetailCell" textLabel="7fJ-hR-Jz2" detailTextLabel="8px-Yy-Rur" style="IBUITableViewCellStyleValue1" id="h9D-NG-RTA">
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h9D-NG-RTA" id="Rja-eY-9Y3">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7fJ-hR-Jz2">
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -559,6 +565,7 @@
                                             </variation>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8px-Yy-Rur">
+                                            <rect key="frame" x="541" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
@@ -635,6 +642,7 @@
                     <navigationItem key="navigationItem" id="bq4-wt-WAY"/>
                     <connections>
                         <segue destination="2Xv-mE-jeF" kind="presentation" identifier="AddTrip" id="dts-gT-qwN"/>
+                        <segue destination="xqo-jG-sk2" kind="show" identifier="SharedTripDetail" id="zf9-ft-O1P"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfh-8K-iEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1028,6 +1036,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="zf9-ft-O1P"/>
         <segue reference="KME-hj-VB7"/>
     </inferredMetricsTieBreakers>
 </document>

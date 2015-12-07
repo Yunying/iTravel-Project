@@ -20,6 +20,7 @@ static NSString* const kShowImageSegue = @"ShowImages";
 static NSString* const kEditSingleItemSegue = @"EditSingleItem";
 static NSString* const kCostDetailSegue = @"CostDetail";
 static NSString* const kMapViewSegue = @"ShowMapView";
+static NSString* const kSharedTripSegue = @"SharedTripDetail";
 
 //Class Names
 static NSString* const kTripClass = @"Trip";
