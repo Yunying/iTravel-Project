@@ -19,7 +19,7 @@
 
 @interface TripDayTableViewController ()
 
-@property (nonatomic) bool haveHotel;
+@property (nonatomic, getter=haveHotel) bool haveHotel;
 
 @property (nonatomic) NSInteger sightNumber;
 

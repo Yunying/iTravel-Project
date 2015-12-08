@@ -44,17 +44,20 @@ static NSString * const cellIdentifier = @"CostDetailCell";
     self.navigationItem.title = @"Cost Summary";
     
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
-                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                  target:self action:@selector(addButtonPressed:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    if (_dayType){
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                      target:self action:@selector(addButtonPressed:)];
+        self.navigationItem.rightBarButtonItem = addButton;
+    }
+    
     
     if (_dayType){
         _sights = [_database getSightsForTripDay:_tripDay];
         _others = [_database getThingsForTripDay:_tripDay];
     } else {
-        _sights = [_database getSightsForTripDay:_trip];
-        _others = [_database getThingsForTripDay:_trip];
+        _sights = [_database getSightsForTrip:_trip];
+        _others = [_database getThingsForTrip:_trip];
     }
     
     
@@ -123,7 +126,17 @@ static NSString * const cellIdentifier = @"CostDetailCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section){
         case 0:
-            return 1;
+            if (_dayType){
+                if (_parentView.haveHotel){
+                    return 1;
+                } else {
+                    return 0;
+                }
+            } else {
+                return 0;
+            }
+            
+            
             break;
         case 1:
             return _sights.count;
@@ -155,8 +168,11 @@ static NSString * const cellIdentifier = @"CostDetailCell";
     // Configure the cell...
     
     if (indexPath.section == 0){
-        cell.textLabel.text = _tripDay[kHotelName];
-        cell.detailTextLabel.text = _tripDay[kTripDayHotelCost];
+        if (_dayType){
+            cell.textLabel.text = _tripDay[kHotelName];
+            cell.detailTextLabel.text = _tripDay[kTripDayHotelCost];
+        }
+        
     } else if (indexPath.section == 1){
         int sightIndex = indexPath.row;
         PFObject* sight = (PFObject*)_sights[sightIndex];

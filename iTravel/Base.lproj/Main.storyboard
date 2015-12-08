@@ -116,6 +116,7 @@
                     <connections>
                         <segue destination="YFM-9r-Prq" kind="show" identifier="TripDayDetail" id="csw-6n-EH1"/>
                         <segue destination="6Cy-Se-FNY" kind="show" identifier="ShowMapView" id="5lL-GI-hsU"/>
+                        <segue destination="eTU-n4-Epe" kind="show" identifier="CostDetail" id="adf-a2-nV4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JrJ-ah-Bvs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1134,6 +1135,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zf9-ft-O1P"/>
+        <segue reference="CN0-eQ-wlq"/>
         <segue reference="KME-hj-VB7"/>
     </inferredMetricsTieBreakers>
 </document>

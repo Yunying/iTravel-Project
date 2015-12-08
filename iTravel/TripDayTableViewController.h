@@ -21,6 +21,7 @@
 @property(nonatomic) NSArray* sights;
 @property(strong, nonatomic) TripDetailTableViewController* parentView;
 
-- (void) editTripDay: (UIBarButtonItem*) button;
 
+- (void) editTripDay: (UIBarButtonItem*) button;
+- (BOOL) haveHotel;
 @end

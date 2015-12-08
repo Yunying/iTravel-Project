@@ -14,6 +14,7 @@
 #import "TripDayTableViewController.h"
 #import "TravelDatabase.h"
 #import "MapViewController.h"
+#import "CostDetailTableViewController.h"
 
 @interface TripDetailTableViewController()
 
@@ -145,21 +146,8 @@ static NSString * const cellIdentifier = @"TripDetailCell";
 
     } else if (indexPath.section == 0 && indexPath.row == 5){
         [self performSegueWithIdentifier:kMapViewSegue sender:self];
-        /*Class mapItemClass = [MKMapItem class];
-        if (mapItemClass && [mapItemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)])
-        {
-            // Create an MKMapItem to pass to the Maps app
-            CLLocationCoordinate2D coordinate =
-            CLLocationCoordinate2DMake(16.775, -3.009);
-            MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate
-                                                           addressDictionary:nil];
-            MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
-            [mapItem setName:@"My Place"];
-            // Pass the map item to the Maps app
-            [mapItem openInMapsWithLaunchOptions:nil];
-            
-            
-        }*/
+    } else if (indexPath.section == 0 && indexPath.row == 4){
+        [self performSegueWithIdentifier:kCostDetailSegue sender:self];
     }
 }
 
@@ -224,6 +212,12 @@ static NSString * const cellIdentifier = @"TripDetailCell";
         MapViewController* controller = segue.destinationViewController;
         NSArray* imageLocations = _myTrip.parseObj[kImageLocations];
         controller.locations = imageLocations;
+    } else if ([segue.identifier isEqualToString:kCostDetailSegue]){
+        CostDetailTableViewController* controller = segue.destinationViewController;
+        controller.dayType = false;
+        controller.trip = _myTrip.parseObj;
+        controller.parentView = self;
+        
     }
 }
 
