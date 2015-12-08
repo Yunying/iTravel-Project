@@ -31,6 +31,8 @@
 - (PFObject*) getUser: (NSString*)username withPassword: (NSString*) password;
 
 - (NSArray*) getSightsForTripDay: (PFObject*) inDay;
+- (NSArray*) getThingsForTripDay: (PFObject*) inDay;
+
 - (NSMutableArray*) getImagesForTripDay: (PFObject*) inTrip;
 
 - (void) updateTripDaySightCost: (PFObject*) inTrip withValue: (float) inCost;

@@ -130,6 +130,13 @@
 
 }
 
+- (NSArray*) getThingsForTripDay: (PFObject*) inDay {
+    PFQuery *query = [PFQuery queryWithClassName:kThingClass];
+    [query whereKey:kThingParent equalTo:inDay];
+    NSArray* result = [query findObjects];
+    return result;
+}
+
 - (void) reloadTripDay: (TripDay*) inTrip {
     PFQuery *query = [PFQuery queryWithClassName:kTripDayClass];
     PFObject* obj = [query getObjectWithId:inTrip.parseObj.objectId];

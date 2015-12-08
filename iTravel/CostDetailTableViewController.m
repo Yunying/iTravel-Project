@@ -43,6 +43,11 @@ static NSString * const cellIdentifier = @"CostDetailCell";
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title = @"Cost Summary";
     _sights = [_database getSightsForTripDay:_tripDay];
+    _others = [_database getThingsForTripDay:_tripDay];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                  target:self action:@selector(addButtonPressed:)];
+    self.navigationItem.rightBarButtonItem = addButton;
     
     if (_others == nil) {
         _others = [[NSMutableArray alloc]init];
@@ -55,10 +60,54 @@ static NSString * const cellIdentifier = @"CostDetailCell";
     // Dispose of any resources that can be recreated.
 }
 
+- (void) addButtonPressed: (UIBarButtonItem*) button {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add Cost Item"
+                                                                   message:@"Please enter cost item and amount"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        UITextField* priceTextField = alert.textFields[1];
+        
+        PFObject* obj = [PFObject objectWithClassName:kThingClass];
+        obj[kThingParent] = _tripDay;
+        obj[kThingItem] = alert.textFields[0].text;
+        obj[kThingAmount] = alert.textFields[1].text;
+        [obj save];
+        
+        
+        PFObject* dayObj = _tripDay;
+        if (dayObj[kTripDayCost] == nil){
+            dayObj[kTripDayCost] = priceTextField.text;
+            dayObj[kTripDayOtherCost] = priceTextField.text;
+        } else {
+            float newCost = [dayObj[kTripDayCost] floatValue] + [priceTextField.text floatValue];
+            dayObj[kTripDayCost] = [NSString stringWithFormat:@"%1.2f", newCost];
+            dayObj[kTripDayOtherCost] = [NSString stringWithFormat:@"%1.2f", newCost];
+        }
+        [dayObj save];
+        
+        [self viewDidLoad];
+        [self.tableView reloadData];
+        [_parentView viewDidLoad];
+        [_parentView.tableView reloadData];
+        
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Cost Item";
+    }];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Cost Amount";
+    }];
+    [self presentViewController:alert animated:YES completion:nil];
+
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -69,6 +118,8 @@ static NSString * const cellIdentifier = @"CostDetailCell";
         case 1:
             return _sights.count;
             break;
+        case 2:
+            return _others.count;
     }
     return @"";
 }
@@ -82,6 +133,8 @@ static NSString * const cellIdentifier = @"CostDetailCell";
         case 1:
             return @"Events";
             break;
+        case 2:
+            return @"Others";
     }
     return @"";
 }
@@ -99,6 +152,11 @@ static NSString * const cellIdentifier = @"CostDetailCell";
         PFObject* sight = (PFObject*)_sights[sightIndex];
         cell.textLabel.text = sight[kSightName];
         cell.detailTextLabel.text = sight[kSightCost];
+    } else {
+        int otherIndex = indexPath.row;
+        PFObject* thing = (PFObject*)_others[otherIndex];
+        cell.textLabel.text = thing[kThingItem];
+        cell.detailTextLabel.text = thing[kThingAmount];
     }
     
     return cell;

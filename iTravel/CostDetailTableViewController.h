@@ -18,7 +18,7 @@
 
 @property (strong, nonatomic) NSArray* sights;
 
-@property (strong, nonatomic) NSMutableArray* others;
+@property (strong, nonatomic) NSArray* others;
 
 @property (strong, nonatomic) TripDayTableViewController* parentView;
 
