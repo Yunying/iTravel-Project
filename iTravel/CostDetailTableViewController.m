@@ -42,12 +42,22 @@ static NSString * const cellIdentifier = @"CostDetailCell";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title = @"Cost Summary";
-    _sights = [_database getSightsForTripDay:_tripDay];
-    _others = [_database getThingsForTripDay:_tripDay];
+    
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                   target:self action:@selector(addButtonPressed:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    if (_dayType){
+        _sights = [_database getSightsForTripDay:_tripDay];
+        _others = [_database getThingsForTripDay:_tripDay];
+    } else {
+        _sights = [_database getSightsForTripDay:_trip];
+        _others = [_database getThingsForTripDay:_trip];
+    }
+    
+    
     
     if (_others == nil) {
         _others = [[NSMutableArray alloc]init];

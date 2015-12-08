@@ -209,4 +209,24 @@
     return obj;
 }
 
+- (NSArray*) getSightsForTrip: (PFObject*) inTrip {
+    NSArray* tripDays = [self getAllTripDayObjectsForTrip:inTrip];
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+    for (int i=0; i<tripDays.count; i++){
+        NSArray* arr = [self getSightsForTripDay:(PFObject*)tripDays[i]];
+        [result addObjectsFromArray:arr];
+    }
+    return result;
+}
+
+- (NSArray*) getThingsForTrip: (PFObject*) inTrip {
+    NSArray* tripDays = [self getAllTripDayObjectsForTrip:inTrip];
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+    for (int i=0; i<tripDays.count; i++){
+        NSArray* arr = [self getThingsForTripDay:(PFObject*)tripDays[i]];
+        [result addObjectsFromArray:arr];
+    }
+    return result;
+}
+
 @end

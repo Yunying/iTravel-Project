@@ -16,6 +16,8 @@
 
 @property (strong, nonatomic) PFObject* tripDay;
 
+@property (strong, nonatomic) PFObject* trip;
+
 @property (strong, nonatomic) NSArray* sights;
 
 @property (strong, nonatomic) NSArray* others;
