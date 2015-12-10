@@ -117,7 +117,7 @@ static NSString * const cellIdentifier = @"TripDetailCell";
 
                 break;
             case 5:
-                cell.textLabel.text = @"Image Locations";
+                cell.textLabel.text = @"Footprints";
                 cell.detailTextLabel.text = @"";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 break;
@@ -212,11 +212,13 @@ static NSString * const cellIdentifier = @"TripDetailCell";
         MapViewController* controller = segue.destinationViewController;
         NSArray* imageLocations = _myTrip.parseObj[kImageLocations];
         controller.locations = imageLocations;
+        controller.tripObj = _myTrip.parseObj;
     } else if ([segue.identifier isEqualToString:kCostDetailSegue]){
         CostDetailTableViewController* controller = segue.destinationViewController;
         controller.dayType = false;
         controller.trip = _myTrip.parseObj;
         controller.parentView = self;
+        
         
     }
 }

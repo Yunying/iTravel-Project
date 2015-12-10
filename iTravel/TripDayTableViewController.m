@@ -307,7 +307,7 @@ static NSInteger const SightRowNumber = 3;
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
-    NSURL *referenceURL = [info objectForKey:UIImagePickerControllerReferenceURL];
+    /*NSURL *referenceURL = [info objectForKey:UIImagePickerControllerReferenceURL];
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     [library assetForURL:referenceURL resultBlock:^(ALAsset *asset) {
         ALAssetRepresentation *rep = [asset defaultRepresentation];
@@ -336,7 +336,7 @@ static NSInteger const SightRowNumber = 3;
 
     } failureBlock:^(NSError *error) {
         // error handling
-    }];
+    }];*/
     
     //Save Image
     
