@@ -32,8 +32,8 @@
 
 - (NSArray*) getSightsForTripDay: (PFObject*) inDay;
 - (NSArray*) getThingsForTripDay: (PFObject*) inDay;
-- (NSArray*) getSightsForTrip: (PFObject*) inTrip;
-- (NSArray*) getThingsForTrip: (PFObject*) inTrip;
+- (NSArray*) getSightsForTrip: (NSArray*) inTrip;
+- (NSArray*) getThingsForTrip: (NSArray*) inTrip;
 
 - (NSMutableArray*) getImagesForTripDay: (PFObject*) inTrip;
 

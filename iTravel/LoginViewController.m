@@ -50,6 +50,13 @@
      initWithString:@"Password"
      attributes:@{NSForegroundColorAttributeName:color}];
     _passwordTextfield.secureTextEntry = NO;
+    
+    //Tap
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 
 }
 
@@ -115,6 +122,11 @@
         MainTableViewController* controller = (MainTableViewController*)nav.topViewController;
         controller.myUser = _myUser;
     }
+}
+
+-(void)dismissKeyboard {
+    [_usernameTextfield resignFirstResponder];
+    [_passwordTextfield resignFirstResponder];
 }
 
 

@@ -25,6 +25,10 @@
 
 @property PFObject* editItem;
 
+@property (strong, nonatomic) NSMutableArray* hotels;
+
+@property (strong, nonatomic) NSArray* tripDayArray;
+
 @end
 
 @implementation CostDetailTableViewController
@@ -56,8 +60,9 @@ static NSString * const cellIdentifier = @"CostDetailCell";
         _sights = [_database getSightsForTripDay:_tripDay];
         _others = [_database getThingsForTripDay:_tripDay];
     } else {
-        _sights = [_database getSightsForTrip:_trip];
-        _others = [_database getThingsForTrip:_trip];
+        _tripDayArray = [_database getAllTripDayObjectsForTrip:_trip];
+        _sights = [_database getSightsForTrip:_tripDayArray];
+        _others = [_database getThingsForTrip:_tripDayArray];
     }
     
     
@@ -72,6 +77,7 @@ static NSString * const cellIdentifier = @"CostDetailCell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (void) addButtonPressed: (UIBarButtonItem*) button {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add Cost Item"
@@ -123,6 +129,18 @@ static NSString * const cellIdentifier = @"CostDetailCell";
     return 3;
 }
 
+- (int) getNumberOfHotels {
+    int result = 0;
+    for (int i=0; i<_tripDayArray.count; i++){
+        PFObject* obj = (PFObject*)_tripDayArray[i];
+        if (obj[kHotelName] != nil && ![obj[kHotelName] isEqualToString:@""]){
+            result++;
+        
+        }
+    }
+    return result;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section){
         case 0:
@@ -133,7 +151,8 @@ static NSString * const cellIdentifier = @"CostDetailCell";
                     return 0;
                 }
             } else {
-                return 0;
+                return [self getNumberOfHotels];
+
             }
             
             
@@ -171,6 +190,10 @@ static NSString * const cellIdentifier = @"CostDetailCell";
         if (_dayType){
             cell.textLabel.text = _tripDay[kHotelName];
             cell.detailTextLabel.text = _tripDay[kTripDayHotelCost];
+        } else {
+            PFObject* obj = (PFObject*)_tripDayArray[indexPath.row];
+            cell.textLabel.text= obj[kHotelName];
+            cell.detailTextLabel.text = obj[kTripDayHotelCost];
         }
         
     } else if (indexPath.section == 1){
